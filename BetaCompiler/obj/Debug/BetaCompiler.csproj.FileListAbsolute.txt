@@ -1,0 +1,6 @@
+c:\users\frank\onedrive\documentos\visual studio 2015\Projects\BetaCompiler\BetaCompiler\bin\Debug\BetaCompiler.exe.config
+c:\users\frank\onedrive\documentos\visual studio 2015\Projects\BetaCompiler\BetaCompiler\bin\Debug\BetaCompiler.exe
+c:\users\frank\onedrive\documentos\visual studio 2015\Projects\BetaCompiler\BetaCompiler\bin\Debug\BetaCompiler.pdb
+c:\users\frank\onedrive\documentos\visual studio 2015\Projects\BetaCompiler\BetaCompiler\obj\Debug\BetaCompiler.csprojResolveAssemblyReference.cache
+c:\users\frank\onedrive\documentos\visual studio 2015\Projects\BetaCompiler\BetaCompiler\obj\Debug\BetaCompiler.exe
+c:\users\frank\onedrive\documentos\visual studio 2015\Projects\BetaCompiler\BetaCompiler\obj\Debug\BetaCompiler.pdb
