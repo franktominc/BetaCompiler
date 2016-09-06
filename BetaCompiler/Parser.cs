@@ -508,10 +508,10 @@ namespace Lexer
             l = new List<string> {"<code_zone_token>"};
             follow.Add("<declaration_zone_statement>", l);
 
-            l = new List<string> {"<close_brace>"};
+            l = new List<string> {"< type >", "<close_brace>"};
             follow.Add("<var_declaration>", l);
 
-            l = new List<string> {"<type>", "<close_brace>"};
+            l = new List<string> {"<close_brace>"};
             follow.Add("<assignment>", l);
 
             l = new List<string> {"<end_of_statement>"};
@@ -520,7 +520,17 @@ namespace Lexer
             l = new List<string> {"$"};
             follow.Add("<code_zone_statement>", l);
 
-            l = new List<string> {"<close_brace>", "<case>"};
+            l = new List<string> 
+            {
+                "<if>",
+                "<switch>",
+                "<identifier>",
+                "<for>",
+                "<while>",
+                "<read>",
+                "<write>",
+                "<close_brace>"
+            };
             follow.Add("<statement>", l);
 
             l = new List<string>
@@ -532,8 +542,7 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>",
-                "<case>"
+                "<close_brace>"
             };
             follow.Add("<statement_type>", l);
 
@@ -546,9 +555,7 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<end_of_statement>",
-                "<close_brace>",
-                "<case>"
+                "<close_brace>"
             };
             follow.Add("<atr>", l);
 
@@ -586,7 +593,10 @@ namespace Lexer
             l = new List<string> {"<if>", "<switch>", "<identifier>", "<for>", "<while>", "<read>", "<write>"};
             follow.Add("<switch_statement>", l);
 
-            l = new List<string> {"<default_statement>", "<close_brace>", "<case>"};
+            l = new List<string> { "<default_statement>", "<case_statement>" };
+            follow.Add("<case_block>", l);
+
+            l = new List<string> {"<default_statement>", "<case_statement>"};
             follow.Add("<case_statement>", l);
 
             l = new List<string> {"<close_brace>"};
@@ -711,7 +721,6 @@ namespace Lexer
 
             l = new List<string>
             {
-                "<relational_operator>",
                 "<logic_operator>",
                 "<close_parenthesis>",
                 "<end_of_statement>"
@@ -722,20 +731,14 @@ namespace Lexer
             {
                 "<multiplicative_operator>",
                 "<sum_operator>",
-                "<relational_operator>",
-                "<logic_operator>",
                 "<close_parenthesis>",
-                "<end_of_statement>",
-                "<close_parenthesis>"
+                "<open_brace>"
             };
             follow.Add("<operand>", l);
 
             l = new List<string>
             {
-                "<relational_operator>",
-                "<logic_operator>",
-                "<close_parenthesis>",
-                "<end_of_statement>",
+                "<sum_operator>",
                 "<close_parenthesis>"
             };
             follow.Add("<sum_expression>", l);
@@ -743,17 +746,13 @@ namespace Lexer
             l = new List<string>
             {
                 "<sum_operator>",
-                "<relational_operator>",
-                "<logic_operator>",
-                "<close_parenthesis>",
-                "<end_of_statement>",
+                "<multiplicative_operator",
                 "<close_parenthesis>"
             };
             follow.Add("<multiplicative_expression>", l);
 
-
-
-
+            l = new List<string>{"<close_parenthesis>"};
+            follow.Add("<write_operator>", l);
         }
 
         private void AddReduces()
