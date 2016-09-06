@@ -1,0 +1,6 @@
+C:\Users\frank\Source\Repos\NewRepo\BetaCompiler\bin\Debug\BetaCompiler.exe.config
+C:\Users\frank\Source\Repos\NewRepo\BetaCompiler\bin\Debug\BetaCompiler.exe
+C:\Users\frank\Source\Repos\NewRepo\BetaCompiler\bin\Debug\BetaCompiler.pdb
+C:\Users\frank\Source\Repos\NewRepo\BetaCompiler\obj\Debug\BetaCompiler.csprojResolveAssemblyReference.cache
+C:\Users\frank\Source\Repos\NewRepo\BetaCompiler\obj\Debug\BetaCompiler.exe
+C:\Users\frank\Source\Repos\NewRepo\BetaCompiler\obj\Debug\BetaCompiler.pdb

@@ -143,10 +143,11 @@ namespace Lexer
                 {
                     s = sr.ReadLine();
                     var startPosition = 0;
-                    y++;
+                    
                     var i = 0;
                     //s = Regex.Replace(s, @"\s+", string.Empty);
                     tokens.Add(new Tuple<string, string>($"<line {y}>", $"<line {y}>"));
+                    y++;
                     STATE_0:
                     startPosition = i;
                     if (i == s.Length)
@@ -206,7 +207,7 @@ namespace Lexer
                     }
                     STATE_1:
                     i++;
-                    if (char.IsLetterOrDigit(s[i]))
+                    if (i < s.Length && char.IsLetterOrDigit(s[i]))
                     {
                         goto STATE_1;
                     }
@@ -278,9 +279,9 @@ namespace Lexer
                     goto STATE_4;
                     STATE_14:
                     i++;
-                    if (char.IsDigit(s[i]))
+                    if (i < s.Length && char.IsDigit(s[i]))
                         goto STATE_14;
-                    if (s[i] == '.')
+                    if (i < s.Length && s[i] == '.')
                         goto STATE_15;
                     tokens.Add(new Tuple<string, string>("<number>",
                         s.Substring(startPosition, i - startPosition)));
@@ -295,7 +296,7 @@ namespace Lexer
                     goto FAILED;
                     STATE_16:
                     i++;
-                    if (char.IsDigit(s[i]))
+                    if (i < s.Length && char.IsDigit(s[i]))
                     {
                         goto STATE_16;
                     }
@@ -304,12 +305,12 @@ namespace Lexer
                     goto STATE_0;
                     STATE_17:
                     i++;
-                    if (s[i] == '\\')
+                    if (i < s.Length && s[i] == '\\')
                     {
                         i += 2;
                         goto STATE_17;
                     }
-                    if (s[i] == '"')
+                    if (i < s.Length && s[i] == '"')
                         goto STATE_18;
                     goto STATE_17;
                     STATE_18:
@@ -348,7 +349,7 @@ namespace Lexer
                         s.Substring(startPosition, i - startPosition)));
                     goto STATE_0;
                     FAILED:
-                    Console.WriteLine("Caracter inesperado encontrado");
+                    Console.WriteLine($"Caracter inesperado encontrado na linha {y}");
                     throw new Exception("Falha ao tentar resolver alguns simbolos");
                     FINNISH:
                     Console.Write("");

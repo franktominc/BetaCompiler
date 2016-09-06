@@ -4,11 +4,9 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 
-namespace Lexer
-{
+namespace Lexer {
 
-    public class Parser
-    {
+    public class Parser {
         private List<string> input;
         private int estadoAtual = 0;
         private Stack<Tuple<string, int>> stack;
@@ -18,8 +16,7 @@ namespace Lexer
 
         private Dictionary<string, List<string>> follow;
 
-        public Parser(List<string> input)
-        {
+        public Parser(List<string> input) {
             this.input = input;
             transitions = new Dictionary<Tuple<int, string>, int>();
             reduces = new Dictionary<Tuple<int, string>, Tuple<string, int>>();
@@ -31,13 +28,12 @@ namespace Lexer
             stack.Push(new Tuple<string, int>("", 0));
         }
 
-        private void AddTransitions()
-        {
+        private void AddTransitions() {
             transitions.Add(new Tuple<int, string>(0, "<program>"), 1);
             transitions.Add(new Tuple<int, string>(0, "<declaration_zone_statement>"), 2);
             transitions.Add(new Tuple<int, string>(0, "<declaration_zone_token>"), 3);
 
-            transitions.Add(new Tuple<int, string>(2, "<code_zone_statement"), 4);
+            transitions.Add(new Tuple<int, string>(2, "<code_zone_statement>"), 4);
             transitions.Add(new Tuple<int, string>(2, "<code_zone_token>"), 5);
 
             transitions.Add(new Tuple<int, string>(3, "<open_brace>"), 6);
@@ -102,7 +98,7 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(23, "<identifier>"), 39);
             transitions.Add(new Tuple<int, string>(23, "<number>"), 40);
 
-            transitions.Add(new Tuple<int, string>(24, "<atribution_operator>"), 41);
+            transitions.Add(new Tuple<int, string>(24, "<attribution_operator>"), 41);
 
             transitions.Add(new Tuple<int, string>(27, "<open_parenthesis>"), 42);
 
@@ -114,7 +110,7 @@ namespace Lexer
 
             transitions.Add(new Tuple<int, string>(33, "<identifier>"), 46);
 
-            transitions.Add(new Tuple<int, string>(34, "<atribution_operator>"), 47);
+            transitions.Add(new Tuple<int, string>(34, "<attribution_operator>"), 47);
 
             transitions.Add(new Tuple<int, string>(37, "<logic_expression>"), 48);
             transitions.Add(new Tuple<int, string>(37, "<logic_operand>"), 49);
@@ -133,13 +129,12 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(38, "<open_brace>"), 61);
 
             transitions.Add(new Tuple<int, string>(41, "<exp>"), 62);
-            transitions.Add(new Tuple<int, string>(41, "<arithmetic_expression>"), 63);
+            transitions.Add(new Tuple<int, string>(41, "<arithmetic_expression>"), 109);
             transitions.Add(new Tuple<int, string>(41, "<logic_expression>"), 64);
             transitions.Add(new Tuple<int, string>(41, "<logic_operand>"), 49);
             transitions.Add(new Tuple<int, string>(41, "<logic_condition>"), 50);
             transitions.Add(new Tuple<int, string>(41, "<relational_expression>"), 51);
             transitions.Add(new Tuple<int, string>(41, "<not_expression>"), 52);
-            transitions.Add(new Tuple<int, string>(41, "<arithmetic_expression>"), 53);
             transitions.Add(new Tuple<int, string>(41, "<not_operator>"), 54);
             transitions.Add(new Tuple<int, string>(41, "<sum_expression>"), 55);
             transitions.Add(new Tuple<int, string>(41, "<multiplicative_expression>"), 56);
@@ -171,7 +166,7 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(45, "<string>"), 70);
             transitions.Add(new Tuple<int, string>(45, "<identifier>"), 71);
 
-            transitions.Add(new Tuple<int, string>(46, "<atribution_operator>"), 72);
+            transitions.Add(new Tuple<int, string>(46, "<attribution_operator>"), 72);
 
             transitions.Add(new Tuple<int, string>(47, "<something>"), 73);
             transitions.Add(new Tuple<int, string>(47, "<number>"), 74);
@@ -206,20 +201,20 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(62, "<end_of_statement>"), 89);
 
             transitions.Add(new Tuple<int, string>(65, "<logic_expression>"), 90);
-            transitions.Add(new Tuple<int, string>(43, "<logic_operand>"), 49);
-            transitions.Add(new Tuple<int, string>(43, "<logic_condition>"), 50);
-            transitions.Add(new Tuple<int, string>(43, "<relational_expression>"), 51);
-            transitions.Add(new Tuple<int, string>(43, "<not_expression>"), 52);
-            transitions.Add(new Tuple<int, string>(43, "<arithmetic_expression>"), 53);
-            transitions.Add(new Tuple<int, string>(43, "<not_operator>"), 54);
-            transitions.Add(new Tuple<int, string>(43, "<sum_expression>"), 55);
-            transitions.Add(new Tuple<int, string>(43, "<multiplicative_expression>"), 56);
-            transitions.Add(new Tuple<int, string>(43, "<open_parenthesis>"), 57);
-            transitions.Add(new Tuple<int, string>(43, "<operand>"), 58);
-            transitions.Add(new Tuple<int, string>(43, "<identifier>"), 59);
-            transitions.Add(new Tuple<int, string>(43, "<number>"), 60);
+            transitions.Add(new Tuple<int, string>(65, "<logic_operand>"), 49);
+            transitions.Add(new Tuple<int, string>(65, "<logic_condition>"), 50);
+            transitions.Add(new Tuple<int, string>(65, "<relational_expression>"), 51);
+            transitions.Add(new Tuple<int, string>(65, "<not_expression>"), 52);
+            transitions.Add(new Tuple<int, string>(65, "<arithmetic_expression>"), 53);
+            transitions.Add(new Tuple<int, string>(65, "<not_operator>"), 54);
+            transitions.Add(new Tuple<int, string>(65, "<sum_expression>"), 55);
+            transitions.Add(new Tuple<int, string>(65, "<multiplicative_expression>"), 56);
+            transitions.Add(new Tuple<int, string>(65, "<open_parenthesis>"), 57);
+            transitions.Add(new Tuple<int, string>(65, "<operand>"), 58);
+            transitions.Add(new Tuple<int, string>(65, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(65, "<number>"), 60);
 
-            transitions.Add(new Tuple<int, string>(66, "<atribution_operator>"), 91);
+            transitions.Add(new Tuple<int, string>(66, "<attribution_operator>"), 91);
 
             transitions.Add(new Tuple<int, string>(67, "<close_parenthesis>"), 92);
 
@@ -304,7 +299,7 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(95, "<end_of_statement>"), 113);
 
             transitions.Add(new Tuple<int, string>(97, "<statement>"), 114);
-            transitions.Add(new Tuple<int, string>(97, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(97, "<statement_type>"), 12);
             transitions.Add(new Tuple<int, string>(97, "<conditional>"), 13);
             transitions.Add(new Tuple<int, string>(97, "<atr>"), 14);
             transitions.Add(new Tuple<int, string>(97, "<rept>"), 15);
@@ -340,7 +335,7 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(109, "<relational_operator>"), 122);
 
             transitions.Add(new Tuple<int, string>(110, "<statement>"), 123);
-            transitions.Add(new Tuple<int, string>(110, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(110, "<statement_type>"), 12);
             transitions.Add(new Tuple<int, string>(110, "<conditional>"), 13);
             transitions.Add(new Tuple<int, string>(110, "<atr>"), 14);
             transitions.Add(new Tuple<int, string>(110, "<rept>"), 15);
@@ -361,6 +356,25 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(110, "<write>"), 30);
 
             transitions.Add(new Tuple<int, string>(114, "<close_brace>"), 125);
+            transitions.Add(new Tuple<int, string>(114, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(114, "<conditional>"), 13);
+            transitions.Add(new Tuple<int, string>(114, "<atr>"), 14);
+            transitions.Add(new Tuple<int, string>(114, "<rept>"), 15);
+            transitions.Add(new Tuple<int, string>(114, "<read_statement>"), 16);
+            transitions.Add(new Tuple<int, string>(114, "<write_statement>"), 17);
+            transitions.Add(new Tuple<int, string>(114, "<if_statement>"), 18);
+            transitions.Add(new Tuple<int, string>(114, "<switch_statement>"), 19);
+            transitions.Add(new Tuple<int, string>(114, "<if_conditional>"), 20);
+            transitions.Add(new Tuple<int, string>(114, "<if_or_else>"), 21);
+            transitions.Add(new Tuple<int, string>(114, "<if>"), 22);
+            transitions.Add(new Tuple<int, string>(114, "<switch>"), 23);
+            transitions.Add(new Tuple<int, string>(114, "<identifier>"), 24);
+            transitions.Add(new Tuple<int, string>(114, "<for_statement>"), 25);
+            transitions.Add(new Tuple<int, string>(114, "<while_statement>"), 26);
+            transitions.Add(new Tuple<int, string>(114, "<for>"), 27);
+            transitions.Add(new Tuple<int, string>(114, "<while>"), 28);
+            transitions.Add(new Tuple<int, string>(114, "<read>"), 29);
+            transitions.Add(new Tuple<int, string>(114, "<write>"), 30);
 
             transitions.Add(new Tuple<int, string>(115, "<multiplicative_expression>"), 126);
             transitions.Add(new Tuple<int, string>(115, "<open_parenthesis>"), 57);
@@ -369,7 +383,7 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(115, "<number>"), 60);
 
             transitions.Add(new Tuple<int, string>(117, "<statement>"), 127);
-            transitions.Add(new Tuple<int, string>(117, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(117, "<statement_type>"), 12);
             transitions.Add(new Tuple<int, string>(117, "<conditional>"), 13);
             transitions.Add(new Tuple<int, string>(117, "<atr>"), 14);
             transitions.Add(new Tuple<int, string>(117, "<rept>"), 15);
@@ -390,7 +404,7 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(117, "<write>"), 30);
 
             transitions.Add(new Tuple<int, string>(118, "<statement>"), 128);
-            transitions.Add(new Tuple<int, string>(118, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(118, "<statement_type>"), 12);
             transitions.Add(new Tuple<int, string>(118, "<conditional>"), 13);
             transitions.Add(new Tuple<int, string>(118, "<atr>"), 14);
             transitions.Add(new Tuple<int, string>(118, "<rept>"), 15);
@@ -423,6 +437,25 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(122, "<number>"), 60);
 
             transitions.Add(new Tuple<int, string>(123, "<close_brace>"), 132);
+            transitions.Add(new Tuple<int, string>(123, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(123, "<conditional>"), 13);
+            transitions.Add(new Tuple<int, string>(123, "<atr>"), 14);
+            transitions.Add(new Tuple<int, string>(123, "<rept>"), 15);
+            transitions.Add(new Tuple<int, string>(123, "<read_statement>"), 16);
+            transitions.Add(new Tuple<int, string>(123, "<write_statement>"), 17);
+            transitions.Add(new Tuple<int, string>(123, "<if_statement>"), 18);
+            transitions.Add(new Tuple<int, string>(123, "<switch_statement>"), 19);
+            transitions.Add(new Tuple<int, string>(123, "<if_conditional>"), 20);
+            transitions.Add(new Tuple<int, string>(123, "<if_or_else>"), 21);
+            transitions.Add(new Tuple<int, string>(123, "<if>"), 22);
+            transitions.Add(new Tuple<int, string>(123, "<switch>"), 23);
+            transitions.Add(new Tuple<int, string>(123, "<identifier>"), 24);
+            transitions.Add(new Tuple<int, string>(123, "<for_statement>"), 25);
+            transitions.Add(new Tuple<int, string>(123, "<while_statement>"), 26);
+            transitions.Add(new Tuple<int, string>(123, "<for>"), 27);
+            transitions.Add(new Tuple<int, string>(123, "<while>"), 28);
+            transitions.Add(new Tuple<int, string>(123, "<read>"), 29);
+            transitions.Add(new Tuple<int, string>(123, "<write>"), 30);
 
             transitions.Add(new Tuple<int, string>(125, "<else_statement>"), 133);
             transitions.Add(new Tuple<int, string>(125, "<else>"), 134);
@@ -447,12 +480,12 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(135, "<identifier>"), 59);
             transitions.Add(new Tuple<int, string>(135, "<number>"), 60);
 
-            transitions.Add(new Tuple<int, string>(136, "<operand>"), 143);
+            transitions.Add(new Tuple<int, string>(136, "<end_of_statement>"), 143);
 
             transitions.Add(new Tuple<int, string>(137, "<end_of_statement>"), 144);
 
             transitions.Add(new Tuple<int, string>(138, "<statement>"), 145);
-            transitions.Add(new Tuple<int, string>(138, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(138, "<statement_type>"), 12);
             transitions.Add(new Tuple<int, string>(138, "<conditional>"), 13);
             transitions.Add(new Tuple<int, string>(138, "<atr>"), 14);
             transitions.Add(new Tuple<int, string>(138, "<rept>"), 15);
@@ -493,6 +526,8 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(140, "<read>"), 29);
             transitions.Add(new Tuple<int, string>(140, "<write>"), 30);
 
+            transitions.Add(new Tuple<int, string>(143, "<close_brace>"), 150);
+
             transitions.Add(new Tuple<int, string>(144, "<close_brace>"), 147);
 
             transitions.Add(new Tuple<int, string>(145, "<close_brace>"), 148);
@@ -500,27 +535,26 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(146, "<close_brace>"), 149);
         }
 
-        private void AddFollow()
-        {
-            var l = new List<string> {"$"};
+        private void AddFollow() {
+            var l = new List<string> { "$" };
             follow.Add("<program>", l);
 
-            l = new List<string> {"<code_zone_token>"};
+            l = new List<string> { "<code_zone_token>" };
             follow.Add("<declaration_zone_statement>", l);
 
-            l = new List<string> {"< type >", "<close_brace>"};
+            l = new List<string> { "<type>", "<close_brace>" };
             follow.Add("<var_declaration>", l);
 
-            l = new List<string> {"<close_brace>"};
+            l = new List<string> { "<close_brace>", "<type>" };
             follow.Add("<assignment>", l);
 
-            l = new List<string> {"<end_of_statement>"};
+            l = new List<string> { "<end_of_statement>" };
             follow.Add("<something>", l);
 
-            l = new List<string> {"$"};
+            l = new List<string> { "$" };
             follow.Add("<code_zone_statement>", l);
 
-            l = new List<string> 
+            l = new List<string>
             {
                 "<if>",
                 "<switch>",
@@ -529,7 +563,8 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>"
+                "<close_brace>",
+                "<break>"
             };
             follow.Add("<statement>", l);
 
@@ -542,7 +577,8 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>"
+                "<close_brace>",
+                "<break>"
             };
             follow.Add("<statement_type>", l);
 
@@ -555,26 +591,27 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>"
+                "<close_brace>",
+                "<break>"
             };
             follow.Add("<atr>", l);
 
-            l = new List<string> {"<end_of_statement>"};
+            l = new List<string> { "<end_of_statement>" };
             follow.Add("<exp>", l);
 
-            l = new List<string> {"<close_parenthesis>"};
+            l = new List<string> { "<close_parenthesis>" };
             follow.Add("<itr>", l);
 
-            l = new List<string> {"<logic_operator>", "<close_parenthesis>", "<end_of_statement>"};
+            l = new List<string> { "<logic_operator>", "<close_parenthesis>", "<end_of_statement>" };
             follow.Add("<relational_expression>", l);
 
-            l = new List<string> {"<logic_operator>", "<close_parenthesis>", "<end_of_statement>"};
+            l = new List<string> { "<logic_operator>", "<close_parenthesis>", "<end_of_statement>" };
             follow.Add("<not_expression>", l);
 
-            l = new List<string> {"<logic_operator>", "<close_parenthesis>", "<end_of_statement>"};
+            l = new List<string> { "<logic_operator>", "<close_parenthesis>", "<end_of_statement>" };
             follow.Add("<logic_operand>", l);
 
-            l = new List<string> {"<close_parenthesis>", "<end_of_statement>"};
+            l = new List<string> { "<close_parenthesis>", "<end_of_statement>" };
             follow.Add("<logic_expression>", l);
 
             l = new List<string>
@@ -586,20 +623,21 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>"
+                "<close_brace>",
+                "<break>"
             };
             follow.Add("<conditional>", l);
 
-            l = new List<string> {"<if>", "<switch>", "<identifier>", "<for>", "<while>", "<read>", "<write>"};
+            l = new List<string> { "<if>", "<switch>", "<identifier>", "<for>", "<while>", "<read>", "<write>", "<break>", "<close_brace>" };
             follow.Add("<switch_statement>", l);
 
-            l = new List<string> { "<default_statement>", "<case_statement>" };
+            l = new List<string> { "<default>", "<case>" };
             follow.Add("<case_block>", l);
 
-            l = new List<string> {"<default_statement>", "<case_statement>"};
+            l = new List<string> { "<default>", "<case>" };
             follow.Add("<case_statement>", l);
 
-            l = new List<string> {"<close_brace>"};
+            l = new List<string> { "<close_brace>" };
             follow.Add("<default_statement>", l);
 
             l = new List<string>
@@ -611,7 +649,8 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>"
+                "<close_brace>",
+                "<break>"
             };
             follow.Add("<if_statement>", l);
 
@@ -624,7 +663,8 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>"
+                "<close_brace>",
+                "<break>"
             };
             follow.Add("<if_conditional>", l);
 
@@ -637,7 +677,8 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>"
+                "<close_brace>",
+                "<break>"
             };
             follow.Add("<if_or_else>", l);
 
@@ -650,7 +691,8 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>"
+                "<close_brace>",
+                "<break>"
             };
             follow.Add("<else_statement>", l);
 
@@ -663,7 +705,8 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>"
+                "<close_brace>",
+                "<break>"
             };
             follow.Add("<rept>", l);
 
@@ -676,7 +719,8 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>"
+                "<close_brace>",
+                "<break>"
             };
             follow.Add("<for_statement>", l);
 
@@ -689,7 +733,8 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>"
+                "<close_brace>",
+                "<break>"
             };
             follow.Add("<while_statement>", l);
 
@@ -702,7 +747,8 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>"
+                "<close_brace>",
+                "<break>"
             };
             follow.Add("<read_statement>", l);
 
@@ -715,7 +761,8 @@ namespace Lexer
                 "<while>",
                 "<read>",
                 "<write>",
-                "<close_brace>"
+                "<close_brace>",
+                "<break>"
             };
             follow.Add("<write_statement>", l);
 
@@ -723,7 +770,8 @@ namespace Lexer
             {
                 "<logic_operator>",
                 "<close_parenthesis>",
-                "<end_of_statement>"
+                "<end_of_statement>",
+                "<relational_operator>"
             };
             follow.Add("<arithmetic_expression>", l);
 
@@ -732,14 +780,18 @@ namespace Lexer
                 "<multiplicative_operator>",
                 "<sum_operator>",
                 "<close_parenthesis>",
-                "<open_brace>"
+                "<open_brace>",
+                "<end_of_statement>",
+                "<relational_operator>"
             };
             follow.Add("<operand>", l);
 
             l = new List<string>
             {
                 "<sum_operator>",
-                "<close_parenthesis>"
+                "<close_parenthesis>",
+                "<end_of_statement>",
+                "<relational_operator>"
             };
             follow.Add("<sum_expression>", l);
 
@@ -747,23 +799,24 @@ namespace Lexer
             {
                 "<sum_operator>",
                 "<multiplicative_operator",
-                "<close_parenthesis>"
+                "<close_parenthesis>",
+                "<end_of_statement>",
+                "<relational_operator>"
             };
             follow.Add("<multiplicative_expression>", l);
 
-            l = new List<string>{"<close_parenthesis>"};
+            l = new List<string> { "<close_parenthesis>" };
             follow.Add("<write_operator>", l);
         }
 
-        private void AddReduces()
-        {
-            reduces.Add(new Tuple<int, string>(4, "<code_zone_statement"),new Tuple<string, int>("<program>", 2) );
+        private void AddReduces() {
+            reduces.Add(new Tuple<int, string>(4, "<code_zone_statement>"), new Tuple<string, int>("<program>", 2));
 
-            reduces.Add(new Tuple<int, string>(9, "<assignment>"), new Tuple<string, int>("<var_declaration>", 1) );
+            reduces.Add(new Tuple<int, string>(9, "<assignment>"), new Tuple<string, int>("<var_declaration>", 1));
 
             reduces.Add(new Tuple<int, string>(12, "<statement_type>"), new Tuple<string, int>("<statement>", 1));
 
-            reduces.Add(new Tuple<int, string>(13, "<conditional>"), new Tuple<string, int>("<statement_type>", 1) );
+            reduces.Add(new Tuple<int, string>(13, "<conditional>"), new Tuple<string, int>("<statement_type>", 1));
 
             reduces.Add(new Tuple<int, string>(14, "<atr>"), new Tuple<string, int>("<statement_type>", 1));
 
@@ -771,87 +824,87 @@ namespace Lexer
 
             reduces.Add(new Tuple<int, string>(16, "<read_statement>"), new Tuple<string, int>("<statement_type>", 1));
 
-            reduces.Add(new Tuple<int, string>(17,"<write_statement>"), new Tuple<string, int>("<statement_type>", 1) );
+            reduces.Add(new Tuple<int, string>(17, "<write_statement>"), new Tuple<string, int>("<statement_type>", 1));
 
-            reduces.Add(new Tuple<int, string>(18, "<if_statement>"), new Tuple<string, int>("<conditional>",1));
+            reduces.Add(new Tuple<int, string>(18, "<if_statement>"), new Tuple<string, int>("<conditional>", 1));
 
             reduces.Add(new Tuple<int, string>(19, "<switch_statement>"), new Tuple<string, int>("<conditional>", 1));
 
-            reduces.Add(new Tuple<int, string>(20, "<if_conditional>"), new Tuple<string, int>("<if_statement>", 1) );
+            reduces.Add(new Tuple<int, string>(20, "<if_conditional>"), new Tuple<string, int>("<if_statement>", 1));
 
-            reduces.Add(new Tuple<int, string>(21, "<if_or_else>"), new Tuple<string, int>("<if_statement>", 1) );
+            reduces.Add(new Tuple<int, string>(21, "<if_or_else>"), new Tuple<string, int>("<if_statement>", 1));
 
-            reduces.Add(new Tuple<int, string>(25, "<for_statement>"), new Tuple<string, int>("<rept>", 1) );
+            reduces.Add(new Tuple<int, string>(25, "<for_statement>"), new Tuple<string, int>("<rept>", 1));
 
-            reduces.Add(new Tuple<int, string>(26, "<while_statement>"), new Tuple<string, int>("<rept>", 1) );
+            reduces.Add(new Tuple<int, string>(26, "<while_statement>"), new Tuple<string, int>("<rept>", 1));
 
-            reduces.Add(new Tuple<int, string>(31, "<close_brace>"), new Tuple<string, int>("<declaration_zone_statement>", 4) );
+            reduces.Add(new Tuple<int, string>(31, "<close_brace>"), new Tuple<string, int>("<declaration_zone_statement>", 4));
 
-            reduces.Add(new Tuple<int, string>(32, "<assignment>"), new Tuple<string, int>("<var_declaration>", 2) );
+            reduces.Add(new Tuple<int, string>(32, "<assignment>"), new Tuple<string, int>("<var_declaration>", 2));
 
             reduces.Add(new Tuple<int, string>(35, "<close_brace>"), new Tuple<string, int>("<code_zone_statement>", 4));
 
-            reduces.Add(new Tuple<int, string>(36, "<statement_type>"), new Tuple<string, int>("<statement>",2));
+            reduces.Add(new Tuple<int, string>(36, "<statement_type>"), new Tuple<string, int>("<statement>", 2));
 
-            reduces.Add(new Tuple<int, string>(39, "<identifier>"), new Tuple<string, int>("<operand>", 1) );
+            reduces.Add(new Tuple<int, string>(39, "<identifier>"), new Tuple<string, int>("<operand>", 1));
 
-            reduces.Add(new Tuple<int, string>(40, "<number>"), new Tuple<string, int>("<operand>", 1) );
+            reduces.Add(new Tuple<int, string>(40, "<number>"), new Tuple<string, int>("<operand>", 1));
 
-            reduces.Add(new Tuple<int, string>(49, "<logic_operand>"), new Tuple<string, int>("<logic_expression>", 1) );
+            reduces.Add(new Tuple<int, string>(49, "<logic_operand>"), new Tuple<string, int>("<logic_expression>", 1));
 
-            reduces.Add(new Tuple<int, string>(50, "<logic_condition>"), new Tuple<string, int>("<logic_operand>", 1) );
+            reduces.Add(new Tuple<int, string>(50, "<logic_condition>"), new Tuple<string, int>("<logic_operand>", 1));
 
-            reduces.Add(new Tuple<int, string>(51, "<relational_expression>"), new Tuple<string, int>("<logic_operand>", 1) );
+            reduces.Add(new Tuple<int, string>(51, "<relational_expression>"), new Tuple<string, int>("<logic_operand>", 1));
 
             reduces.Add(new Tuple<int, string>(52, "<not_expression>"), new Tuple<string, int>("<logic_operand>", 1));
 
             reduces.Add(new Tuple<int, string>(55, "<sum_expression>"), new Tuple<string, int>("<arithmetic_expression>", 1));
 
-            reduces.Add(new Tuple<int, string>(56, "<multiplicative_expression>"), new Tuple<string, int>("<sum_expression>", 1) );
+            reduces.Add(new Tuple<int, string>(56, "<multiplicative_expression>"), new Tuple<string, int>("<sum_expression>", 1));
 
-            reduces.Add(new Tuple<int, string>(58, "<operand>"), new Tuple<string, int>("<multiplicative_expression>", 1) );
+            reduces.Add(new Tuple<int, string>(58, "<operand>"), new Tuple<string, int>("<multiplicative_expression>", 1));
 
             reduces.Add(new Tuple<int, string>(59, "<identifier>"), new Tuple<string, int>("<operand>", 1));
 
-            reduces.Add(new Tuple<int, string>(60, "<number>"), new Tuple<string, int>("<operand>",1) );
+            reduces.Add(new Tuple<int, string>(60, "<number>"), new Tuple<string, int>("<operand>", 1));
 
             reduces.Add(new Tuple<int, string>(63, "<arithmetic_expression>"), new Tuple<string, int>("<exp>", 1));
 
-            reduces.Add(new Tuple<int, string>(64, "<logic_expression>"), new Tuple<string, int>("<exp>", 1) );
+            reduces.Add(new Tuple<int, string>(64, "<logic_expression>"), new Tuple<string, int>("<exp>", 1));
 
-            reduces.Add(new Tuple<int, string>(70, "<string>"), new Tuple<string, int>("<write_operator>", 1) );
+            reduces.Add(new Tuple<int, string>(70, "<string>"), new Tuple<string, int>("<write_operator>", 1));
 
-            reduces.Add(new Tuple<int, string>(71, "<identifier>"), new Tuple<string, int>("<write_operator>", 1) );
+            reduces.Add(new Tuple<int, string>(71, "<identifier>"), new Tuple<string, int>("<write_operator>", 1));
 
-            reduces.Add(new Tuple<int, string>(74, "<number>"), new Tuple<string, int>("<something>", 1) );
+            reduces.Add(new Tuple<int, string>(74, "<number>"), new Tuple<string, int>("<something>", 1));
 
-            reduces.Add(new Tuple<int, string>(75, "<string>"), new Tuple<string, int>("<something>", 1) );
+            reduces.Add(new Tuple<int, string>(75, "<string>"), new Tuple<string, int>("<something>", 1));
 
-            reduces.Add(new Tuple<int, string>(76, "<identifier>"), new Tuple<string, int>("<something>", 1) );
-            
+            reduces.Add(new Tuple<int, string>(76, "<identifier>"), new Tuple<string, int>("<something>", 1));
+
             reduces.Add(new Tuple<int, string>(77, "<logic_condition>"), new Tuple<string, int>("<something>", 1));
 
-            reduces.Add(new Tuple<int, string>(81, "<logic_condition>"), new Tuple<string, int>("<not_expression>", 2) );
+            reduces.Add(new Tuple<int, string>(81, "<logic_condition>"), new Tuple<string, int>("<not_expression>", 2));
 
-            reduces.Add(new Tuple<int, string>(87, "<case_statement>"), new Tuple<string, int>("<case_block>", 1) );
+            reduces.Add(new Tuple<int, string>(87, "<case_statement>"), new Tuple<string, int>("<case_block>", 1));
 
-            reduces.Add(new Tuple<int, string>(89, "<end_of_statement>"), new Tuple<string, int>("<atr>", 4) );
+            reduces.Add(new Tuple<int, string>(89, "<end_of_statement>"), new Tuple<string, int>("<atr>", 4));
 
-            reduces.Add(new Tuple<int, string>(96, "<end_of_statement>"), new Tuple<string, int>("<assignment>", 5) );
+            reduces.Add(new Tuple<int, string>(96, "<end_of_statement>"), new Tuple<string, int>("<assignment>", 5));
 
             reduces.Add(new Tuple<int, string>(98, "<logic_expression>"), new Tuple<string, int>("<logic_expression>", 3));
 
             reduces.Add(new Tuple<int, string>(99, "<arithmetic_expression>"), new Tuple<string, int>("<relational_expression>", 3));
 
-            reduces.Add(new Tuple<int, string>(100, "<multiplicative_expression>"), new Tuple<string, int>("<sum_expression>", 3) );
+            reduces.Add(new Tuple<int, string>(100, "<multiplicative_expression>"), new Tuple<string, int>("<sum_expression>", 3));
 
-            reduces.Add(new Tuple<int, string>(101, "<operand>"), new Tuple<string, int>("<multiplicative_expression>", 3) );
+            reduces.Add(new Tuple<int, string>(101, "<operand>"), new Tuple<string, int>("<multiplicative_expression>", 3));
 
-            reduces.Add(new Tuple<int, string>(102, "<close_parenthesis>"), new Tuple<string, int>("<multiplicative_expression>", 3) );
+            reduces.Add(new Tuple<int, string>(102, "<close_parenthesis>"), new Tuple<string, int>("<multiplicative_expression>", 3));
 
             reduces.Add(new Tuple<int, string>(104, "<case_statement>"), new Tuple<string, int>("<case_block>", 2));
 
-            reduces.Add(new Tuple<int, string>(109, "<arithmetic_expression>"), new Tuple<string, int>("<exp>", 1) );
+            reduces.Add(new Tuple<int, string>(109, "<arithmetic_expression>"), new Tuple<string, int>("<exp>", 1));
 
             reduces.Add(new Tuple<int, string>(111, "<end_of_statement>"), new Tuple<string, int>("<read_statement>", 5));
 
@@ -859,100 +912,101 @@ namespace Lexer
 
             reduces.Add(new Tuple<int, string>(113, "<end_of_statement>"), new Tuple<string, int>("<assignment>", 5));
 
-            reduces.Add(new Tuple<int, string>(116, "<close_brace>"), new Tuple<string, int>("<switch_statement>", 6) );
+            reduces.Add(new Tuple<int, string>(116, "<close_brace>"), new Tuple<string, int>("<switch_statement>", 6));
 
-            reduces.Add(new Tuple<int, string>(121, "<end_of_statement>"), new Tuple<string, int>("<atr>", 4) );
+            reduces.Add(new Tuple<int, string>(121, "<end_of_statement>"), new Tuple<string, int>("<atr>", 4));
 
-            reduces.Add(new Tuple<int, string>(124, "<close_brace>"), new Tuple<string, int>("<if_conditional>", 7));
+            reduces.Add(new Tuple<int, string>(125, "<close_brace>"), new Tuple<string, int>("<if_conditional>", 7));
 
             reduces.Add(new Tuple<int, string>(126, "<multiplicative_expression>"), new Tuple<string, int>("<multiplicative_expression>", 5));
 
             reduces.Add(new Tuple<int, string>(131, "<arithmetic_expression>"), new Tuple<string, int>("<relational_expression>", 3));
 
-            reduces.Add(new Tuple<int, string>(132, "<close_brace>"), new Tuple<string, int>("<while_statement>", 7) );
+            reduces.Add(new Tuple<int, string>(132, "<close_brace>"), new Tuple<string, int>("<while_statement>", 7));
 
-            reduces.Add(new Tuple<int, string>(133, "<else_statement>"), new Tuple<string, int>("<if_or_else>", 8) );
+            reduces.Add(new Tuple<int, string>(133, "<else_statement>"), new Tuple<string, int>("<if_or_else>", 8));
 
-            reduces.Add(new Tuple<int, string>(139, "<number>"), new Tuple<string, int>("<itr>", 3) );
+            reduces.Add(new Tuple<int, string>(139, "<number>"), new Tuple<string, int>("<itr>", 3));
 
-            reduces.Add(new Tuple<int, string>(141, "<if_statement>"), new Tuple<string, int>("<else_statement>", 2) );
-            
-            reduces.Add(new Tuple<int, string>(142, "<operand>"), new Tuple<string, int>("<multiplicative_expression>", 3) );
+            reduces.Add(new Tuple<int, string>(141, "<if_statement>"), new Tuple<string, int>("<else_statement>", 2));
 
-            reduces.Add(new Tuple<int, string>(143, "<close_brace>"), new Tuple<string, int>("<default_statement>", 6) );
+            reduces.Add(new Tuple<int, string>(142, "<operand>"), new Tuple<string, int>("<multiplicative_expression>", 3));
 
-            reduces.Add(new Tuple<int, string>(147, "<close_brace>"), new Tuple<string, int>("<case_statement>", 7) );
+            reduces.Add(new Tuple<int, string>(147, "<close_brace>"), new Tuple<string, int>("<case_statement>", 7));
 
-            reduces.Add(new Tuple<int, string>(148, "<close_brace>"), new Tuple<string, int>("<for_statement>", 10) );
+            reduces.Add(new Tuple<int, string>(148, "<close_brace>"), new Tuple<string, int>("<for_statement>", 10));
 
             reduces.Add(new Tuple<int, string>(149, "<close_brace>"), new Tuple<string, int>("<else_statement>", 4));
+
+            reduces.Add(new Tuple<int, string>(150, "<close_brace>"), new Tuple<string, int>("<default_statement>", 6));
         }
 
-        public void Parse()
-        {
+        public void Parse() {
             Console.WriteLine(input.Count);
 
-            while (input.Count != 0)
-            {
-                try
-                {
-                    if (input[0].StartsWith("<line")) {
-                        line = input[0];
-                        input.RemoveAt(0);
-                        continue;
-                    }
+            while (input.Count != 0) {
 
-                    Console.WriteLine("Stack.Peek = " + stack.Peek());
-                    Console.WriteLine("Input = " + input[0]);
-                    var transicao = new Tuple<int, string>(estadoAtual, input[0]);
-                    var reduceTransition = new Tuple<int, string>(estadoAtual, stack.Peek().Item1);
-                    if ("$".Equals(input[0]) && "<program>".Equals(stack.Peek().Item1)) {
-                        Console.WriteLine("Parabens, voce nao eh gordo");
-                        return;
-                    }
+                if (input[0].StartsWith("<line")) {
+                    line = input[0];
+                    input.RemoveAt(0);
+                    continue;
+                }
 
-                    if (reduces.ContainsKey(reduceTransition)) {
-                        Console.WriteLine($"Estado Atual = {estadoAtual}");
-                        Console.WriteLine("Follow??");
-                        Console.WriteLine("Follow {0} = ", reduces[reduceTransition].Item1);
-                        foreach (var item in follow[reduces[reduceTransition].Item1]) {
-                            Console.Write(item + ",");
-                        }
-                        Console.WriteLine("Follow Contains?? " + follow[reduces[reduceTransition].Item1].Contains(input[0]));
-                        if (follow[reduces[reduceTransition].Item1].Contains(input[0])) {
-                            Console.WriteLine("Reducing {0} on state {1}", stack.Peek(), estadoAtual);
-                            var qnt = reduces[reduceTransition].Item2;
-                            for (var i = 0; i < qnt; i++) {
-                                stack.Pop();
-                            }
-                            var newTuple = new Tuple<int, string>(stack.Peek().Item2, reduces[reduceTransition].Item1);
-                            var empilhar = new Tuple<string, int>(newTuple.Item2, transitions[newTuple]);
-                            stack.Push(empilhar);
-                            estadoAtual = transitions[newTuple];
-                            Console.WriteLine("Stack.Peek after reducing = " + stack.Peek());
-                            //estadoAtual = 
-                        }
-                    }
-                    if (transitions.ContainsKey(transicao))
-                    {
-                        Console.WriteLine($"Shifting {input[0]} on state {estadoAtual}");
-                        var empilhar = new Tuple<string, int>(input[0], transitions[transicao]);
-                        stack.Push(empilhar);
-                        input.RemoveAt(0);
-                        estadoAtual = transitions[transicao];
-                    }
-                   
-
-                } catch (Exception)
-                {
-                    Console.WriteLine($"FODEU NA LINHA {line}");
+                Console.WriteLine("Stack.Peek = " + stack.Peek());
+                Console.WriteLine("Input = " + input[0]);
+                var transicao = new Tuple<int, string>(estadoAtual, input[0]);
+                var reduceTransition = new Tuple<int, string>(estadoAtual, stack.Peek().Item1);
+                if ("$".Equals(input[0]) && "<program>".Equals(stack.Peek().Item1)) {
+                    Console.WriteLine("Compilado com sucesso");
                     return;
                 }
-          
+
+                if (reduces.ContainsKey(reduceTransition)) {
+                    Console.WriteLine($"Estado Atual = {estadoAtual}");
+                    Console.WriteLine("Follow??");
+                    Console.WriteLine("Follow {0} = ", reduces[reduceTransition].Item1);
+                    foreach (var item in follow[reduces[reduceTransition].Item1]) {
+                        Console.Write(item + ",");
+                    }
+                    Console.WriteLine("Follow Contains?? " + follow[reduces[reduceTransition].Item1].Contains(input[0]));
+                    if (follow[reduces[reduceTransition].Item1].Contains(input[0]))
+                    {
+                        Console.WriteLine("Reducing {0} on state {1}", stack.Peek(), estadoAtual);
+                        var qnt = reduces[reduceTransition].Item2;
+                        for (var i = 0; i < qnt; i++)
+                        {
+                            stack.Pop();
+                        }
+                        var newTuple = new Tuple<int, string>(stack.Peek().Item2, reduces[reduceTransition].Item1);
+                        var empilhar = new Tuple<string, int>(newTuple.Item2, transitions[newTuple]);
+                        stack.Push(empilhar);
+                        estadoAtual = transitions[newTuple];
+                        Console.WriteLine("Stack.Peek after reducing = " + stack.Peek());
+                        continue;
+                    }
+                }
+                if (transitions.ContainsKey(transicao))
+                {
+                    Console.WriteLine($"Shifting {input[0]} on state {estadoAtual}");
+                    var empilhar = new Tuple<string, int>(input[0], transitions[transicao]);
+                    stack.Push(empilhar);
+                    input.RemoveAt(0);
+                    estadoAtual = transitions[transicao];
+                }
+                else
+                {
+                    
+                    Console.WriteLine($"Caracter inesperado na linha {line} antes de {transicao.Item2}");
+                    return;
+                }
+
+
+
+
             }
             Console.WriteLine("Oh, fuck");
-            
+
         }
 
-}
+    }
 }
