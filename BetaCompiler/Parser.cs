@@ -941,7 +941,12 @@ namespace Lexer {
             reduces.Add(new Tuple<int, string>(150, "<close_brace>"), new Tuple<string, int>("<default_statement>", 6));
         }
 
-        public void Parse() {
+        public void Parse()
+        {
+
+            var errorList = new List<string>();
+            var hasError = false;
+            var panicCount = 0;
             Console.WriteLine(input.Count);
 
             while (input.Count != 0) {
@@ -957,8 +962,11 @@ namespace Lexer {
                 var transicao = new Tuple<int, string>(estadoAtual, input[0]);
                 var reduceTransition = new Tuple<int, string>(estadoAtual, stack.Peek().Item1);
                 if ("$".Equals(input[0]) && "<program>".Equals(stack.Peek().Item1)) {
-                    Console.WriteLine("Compilado com sucesso");
-                    return;
+                    if (!hasError)
+                    {
+                        Console.WriteLine("Compilado com sucesso");
+                        return;
+                    }
                 }
 
                 if (reduces.ContainsKey(reduceTransition)) {
@@ -982,6 +990,7 @@ namespace Lexer {
                         stack.Push(empilhar);
                         estadoAtual = transitions[newTuple];
                         Console.WriteLine("Stack.Peek after reducing = " + stack.Peek());
+                        panicCount = 0;
                         continue;
                     }
                 }
@@ -992,20 +1001,37 @@ namespace Lexer {
                     stack.Push(empilhar);
                     input.RemoveAt(0);
                     estadoAtual = transitions[transicao];
+                    panicCount++;
                 }
                 else
                 {
-                    
-                    Console.WriteLine($"Caracter inesperado na linha {line} antes de {transicao.Item2}");
-                    return;
+
+                    errorList.Add($"Caracter inesperado na linha {line} depois de {stack.Peek().Item1.Replace('<','\0').Replace('>', '\0')}");
+                    hasError = true;
+                    for (var i = 0; i < panicCount; i++) {
+                        stack.Pop();
+                    }
+                    var transition = new Tuple<int, string>(stack.Peek().Item2, input[0]);
+                    estadoAtual = stack.Peek().Item2;
+                    while (!(transitions.ContainsKey(transition)) && input.Count != 0)
+                    {
+                        input.RemoveAt(0);
+                        if(input.Count != 0)
+                            transition = new Tuple<int, string>(stack.Peek().Item2, input[0]);
+                        estadoAtual = stack.Peek().Item2;
+                    }
+                    panicCount = 0;
                 }
 
 
 
 
             }
-            Console.WriteLine("Oh, fuck");
 
+            foreach (var error in errorList)
+            {
+                Console.WriteLine(error);
+            }
         }
 
     }
