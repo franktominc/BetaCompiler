@@ -757,113 +757,135 @@ namespace Lexer
 
         private void AddReduces()
         {
-            reduces.Add(new Tuple<int, string>(1, "<program>"), new Tuple<string, int>("<program'>", 1));
+            reduces.Add(new Tuple<int, string>(4, "<code_zone_statement"),new Tuple<string, int>("<program>", 2) );
 
-            reduces.Add(new Tuple<int, string>(9, "<assignment>"), new Tuple<string, int>("<var_declaration>", 1));
+            reduces.Add(new Tuple<int, string>(9, "<assignment>"), new Tuple<string, int>("<var_declaration>", 1) );
 
-            reduces.Add(new Tuple<int, string>(4, "<code_zone_statement>"), new Tuple<string, int>("<program>", 2));
+            reduces.Add(new Tuple<int, string>(12, "<statement_type>"), new Tuple<string, int>("<statement>", 1));
 
-            reduces.Add(new Tuple<int, string>(11, "<close_brace>"), new Tuple<string, int>("<code_zone_statement>", 3));
-
-            reduces.Add(new Tuple<int, string>(13, "<statement_type>"), new Tuple<string, int>("<statement>", 1));
+            reduces.Add(new Tuple<int, string>(13, "<conditional>"), new Tuple<string, int>("<statement_type>", 1) );
 
             reduces.Add(new Tuple<int, string>(14, "<atr>"), new Tuple<string, int>("<statement_type>", 1));
 
-            reduces.Add(new Tuple<int, string>(15, "<conditional>"), new Tuple<string, int>("<statement_type>", 1));
+            reduces.Add(new Tuple<int, string>(15, "<rept>"), new Tuple<string, int>("<statement_type>", 1));
 
-            reduces.Add(new Tuple<int, string>(16, "<rept>"), new Tuple<string, int>("<statement_type>", 1));
+            reduces.Add(new Tuple<int, string>(16, "<read_statement>"), new Tuple<string, int>("<statement_type>", 1));
 
-            reduces.Add(new Tuple<int, string>(18, "<if_statement>"), new Tuple<string, int>("<conditional>", 1));
+            reduces.Add(new Tuple<int, string>(17,"<write_statement>"), new Tuple<string, int>("<statement_type>", 1) );
+
+            reduces.Add(new Tuple<int, string>(18, "<if_statement>"), new Tuple<string, int>("<conditional>",1));
 
             reduces.Add(new Tuple<int, string>(19, "<switch_statement>"), new Tuple<string, int>("<conditional>", 1));
 
-            reduces.Add(new Tuple<int, string>(21, "<if_conditional>"), new Tuple<string, int>("<if_statement>", 1));
+            reduces.Add(new Tuple<int, string>(20, "<if_conditional>"), new Tuple<string, int>("<if_statement>", 1) );
 
-            reduces.Add(new Tuple<int, string>(22, "<if_or_else>"), new Tuple<string, int>("<if_statement>", 1));
+            reduces.Add(new Tuple<int, string>(21, "<if_or_else>"), new Tuple<string, int>("<if_statement>", 1) );
 
-            reduces.Add(new Tuple<int, string>(24, "<for_statement>"), new Tuple<string, int>("<rept>", 1));
+            reduces.Add(new Tuple<int, string>(25, "<for_statement>"), new Tuple<string, int>("<rept>", 1) );
 
-            reduces.Add(new Tuple<int, string>(25, "<while_statement>"), new Tuple<string, int>("<rept>", 1));
+            reduces.Add(new Tuple<int, string>(26, "<while_statement>"), new Tuple<string, int>("<rept>", 1) );
 
-            reduces.Add(new Tuple<int, string>(28, "<close_brace>"),
-                new Tuple<string, int>("<declaration_zone_statement>", 4));
-            reduces.Add(new Tuple<int, string>(29, "<var_declaration>"), new Tuple<string, int>("<var_declaration>", 2));
-            reduces.Add(new Tuple<int, string>(31, "<close_brace>"), new Tuple<string, int>("<code_zone_statement>", 4));
-            reduces.Add(new Tuple<int, string>(32, "<statement>"), new Tuple<string, int>("<statement>", 2));
-            reduces.Add(new Tuple<int, string>(44, "<logic_operand>"), new Tuple<string, int>("<logic_expression>", 1));
-            reduces.Add(new Tuple<int, string>(45, "<logic_condition>"), new Tuple<string, int>("<logic_operand>", 1));
-            reduces.Add(new Tuple<int, string>(46, "<relational_expression>"),
-                new Tuple<string, int>("<logic_operand>", 1));
-            reduces.Add(new Tuple<int, string>(47, "<not_expression>"), new Tuple<string, int>("<logic_operand>", 1));
-            reduces.Add(new Tuple<int, string>(50, "<sum_expression>"),
-                new Tuple<string, int>("<arithmetic_expression>", 1));
-            reduces.Add(new Tuple<int, string>(51, "<multiplicative_expression>"),
-                new Tuple<string, int>("<sum_expression>", 1));
-            reduces.Add(new Tuple<int, string>(52, "<operand>"),
-                new Tuple<string, int>("<multiplicative_expression>", 1));
-            reduces.Add(new Tuple<int, string>(54, "<identifier>"), new Tuple<string, int>("<operand>", 1));
+            reduces.Add(new Tuple<int, string>(31, "<close_brace>"), new Tuple<string, int>("<declaration_zone_statement>", 4) );
 
-            reduces.Add(new Tuple<int, string>(55, "<number>"), new Tuple<string, int>("<operand>", 1));
+            reduces.Add(new Tuple<int, string>(32, "<assignment>"), new Tuple<string, int>("<var_declaration>", 2) );
 
-            reduces.Add(new Tuple<int, string>(60, "<number>"), new Tuple<string, int>("<something>", 1));
-            reduces.Add(new Tuple<int, string>(61, "<string>"), new Tuple<string, int>("<something>", 1));
-            reduces.Add(new Tuple<int, string>(62, "<identifier>"), new Tuple<string, int>("<something>", 1));
-            reduces.Add(new Tuple<int, string>(63, "<end_of_statement>"), new Tuple<string, int>("<atr>", 4));
-            reduces.Add(new Tuple<int, string>(64, "<close_brace>"), new Tuple<string, int>("<switch_statement>", 4));
-            reduces.Add(new Tuple<int, string>(71, "<logic_condition>"), new Tuple<string, int>("<not_expression>", 2));
-            reduces.Add(new Tuple<int, string>(72, "<identifier>"), new Tuple<string, int>("<not_expression>", 2));
-            reduces.Add(new Tuple<int, string>(79, "<end_of_statement>"), new Tuple<string, int>("<assignment>", 5));
-            reduces.Add(new Tuple<int, string>(80, "<close_brace>"), new Tuple<string, int>("<switch_statement>", 5));
-            reduces.Add(new Tuple<int, string>(82, "<close_brace>"), new Tuple<string, int>("<switch_statement>", 5));
-            reduces.Add(new Tuple<int, string>(83, "<close_brace>"), new Tuple<string, int>("<switch_statement>", 4));
-            reduces.Add(new Tuple<int, string>(90, "<end_of_statement>"),
-                new Tuple<string, int>("<default_statement>", 2));
-            reduces.Add(new Tuple<int, string>(92, "<arithmetic_expression>"),
-                new Tuple<string, int>("<relational_expression>", 3));
-            reduces.Add(new Tuple<int, string>(93, "<sum_expression>"), new Tuple<string, int>("<sum_expression>", 3));
-            reduces.Add(new Tuple<int, string>(94, "<multiplicative_expression>"),
-                new Tuple<string, int>("<multiplicative_expression>", 3));
-            reduces.Add(new Tuple<int, string>(95, "<close_parenthesis>"),
-                new Tuple<string, int>("<multiplicative_expression>", 3));
-            reduces.Add(new Tuple<int, string>(98, "<arithmetic_expression>"), new Tuple<string, int>("<exp>", 1));
-            reduces.Add(new Tuple<int, string>(99, "<logic_expression>"), new Tuple<string, int>("<exp>", 1));
-            reduces.Add(new Tuple<int, string>(101, "<switch_statement>"), new Tuple<string, int>("<close_brace>", 6));
-            reduces.Add(new Tuple<int, string>(102, "<close_brace>"), new Tuple<string, int>("<switch_statement>", 5));
-            reduces.Add(new Tuple<int, string>(104, "<close_brace>"), new Tuple<string, int>("<swich_statement>", 5));
-            reduces.Add(new Tuple<int, string>(105, "<number>"), new Tuple<string, int>("<case_statement>", 2));
-            reduces.Add(new Tuple<int, string>(106, "<statement>"), new Tuple<string, int>("<case_statement>", 3));
-            reduces.Add(new Tuple<int, string>(109, "<end_of_statement>"),
-                new Tuple<string, int>("<default_statement>", 3));
-            reduces.Add(new Tuple<int, string>(110, "<end_of_statement>"),
-                new Tuple<string, int>("<default_statement>", 3));
-            reduces.Add(new Tuple<int, string>(114, "<end_of_statement>"), new Tuple<string, int>("<atr>", 4));
-            reduces.Add(new Tuple<int, string>(116, "<close_brace>"), new Tuple<string, int>("<while_statement>", 6));
-            reduces.Add(new Tuple<int, string>(117, "<statement>"), new Tuple<string, int>("<case_statement>", 3));
-            reduces.Add(new Tuple<int, string>(121, "<end_of_statement>"), new Tuple<string, int>("<case_statement>", 3));
-            reduces.Add(new Tuple<int, string>(122, "<end_of_statement>"),
-                new Tuple<string, int>("<default_statement>", 4));
-            reduces.Add(new Tuple<int, string>(123, "<close_brace>"), new Tuple<string, int>("<if_conditional>", 7));
-            reduces.Add(new Tuple<int, string>(124, "<multiplicative_expression>"),
-                new Tuple<string, int>("<multiplicative_expression>", 5));
-            reduces.Add(new Tuple<int, string>(127, "<close_brace>"), new Tuple<string, int>("<while_statement>", 7));
-            reduces.Add(new Tuple<int, string>(129, "<end_of_statement>"), new Tuple<string, int>("<case_statement>", 4));
-            reduces.Add(new Tuple<int, string>(130, "<end_of_statement>"), new Tuple<string, int>("<case_statement>", 5));
-            reduces.Add(new Tuple<int, string>(131, "<else_statement>"), new Tuple<string, int>("<if_or_else>", 8));
-            reduces.Add(new Tuple<int, string>(135, "<end_of_statement>"), new Tuple<string, int>("<case_statement>", 5));
-            reduces.Add(new Tuple<int, string>(137, "<if_statement>"), new Tuple<string, int>("<else_statement>", 2));
-            reduces.Add(new Tuple<int, string>(139, "<number>"), new Tuple<string, int>("<itr>", 3));
-            reduces.Add(new Tuple<int, string>(142, "<close_brace>"), new Tuple<string, int>("<for_statement>", 4));
-            reduces.Add(new Tuple<int, string>(143, "<close_brace>"), new Tuple<string, int>("<else_statement>", 4));
-            reduces.Add(new Tuple<int, string>(144, "<close_brace>"), new Tuple<string, int>("<for_statement>", 11));
-            reduces.Add(new Tuple<int, string>(145, "<read_statement>"), new Tuple<string, int>("<statement_type>", 1));
-            reduces.Add(new Tuple<int, string>(146, "<write_statement>"), new Tuple<string, int>("<statement_type>", 1));
-            reduces.Add(new Tuple<int, string>(157, "<end_of_statement>"), new Tuple<string, int>("<read_statement>", 5));
-            reduces.Add(new Tuple<int, string>(158, "<end_of_statement>"),
-                new Tuple<string, int>("<write_statement>", 5));
-            reduces.Add(new Tuple<int, string>(159, "<end_of_statement>"),
-                new Tuple<string, int>("<write_statement>", 5));
-            reduces.Add(new Tuple<int, string>(164, "<end_of_statement>"), new Tuple<string, int>("<assignment>", 5));
-            reduces.Add(new Tuple<int, string>(166, "<end_of_statement>"), new Tuple<string, int>("<atr>", 4));
+            reduces.Add(new Tuple<int, string>(35, "<close_brace>"), new Tuple<string, int>("<code_zone_statement>", 4));
+
+            reduces.Add(new Tuple<int, string>(36, "<statement_type>"), new Tuple<string, int>("<statement>",2));
+
+            reduces.Add(new Tuple<int, string>(39, "<identifier>"), new Tuple<string, int>("<operand>", 1) );
+
+            reduces.Add(new Tuple<int, string>(40, "<number>"), new Tuple<string, int>("<operand>", 1) );
+
+            reduces.Add(new Tuple<int, string>(49, "<logic_operand>"), new Tuple<string, int>("<logic_expression>", 1) );
+
+            reduces.Add(new Tuple<int, string>(50, "<logic_condition>"), new Tuple<string, int>("<logic_operand>", 1) );
+
+            reduces.Add(new Tuple<int, string>(51, "<relational_expression>"), new Tuple<string, int>("<logic_operand>", 1) );
+
+            reduces.Add(new Tuple<int, string>(52, "<not_expression>"), new Tuple<string, int>("<logic_operand>", 1));
+
+            reduces.Add(new Tuple<int, string>(55, "<sum_expression>"), new Tuple<string, int>("<arithmetic_expression>", 1));
+
+            reduces.Add(new Tuple<int, string>(56, "<multiplicative_expression>"), new Tuple<string, int>("<sum_expression>", 1) );
+
+            reduces.Add(new Tuple<int, string>(58, "<operand>"), new Tuple<string, int>("<multiplicative_expression>", 1) );
+
+            reduces.Add(new Tuple<int, string>(59, "<identifier>"), new Tuple<string, int>("<operand>", 1));
+
+            reduces.Add(new Tuple<int, string>(60, "<number>"), new Tuple<string, int>("<operand>",1) );
+
+            reduces.Add(new Tuple<int, string>(63, "<arithmetic_expression>"), new Tuple<string, int>("<exp>", 1));
+
+            reduces.Add(new Tuple<int, string>(64, "<logic_expression>"), new Tuple<string, int>("<exp>", 1) );
+
+            reduces.Add(new Tuple<int, string>(70, "<string>"), new Tuple<string, int>("<write_operator>", 1) );
+
+            reduces.Add(new Tuple<int, string>(71, "<identifier>"), new Tuple<string, int>("<write_operator>", 1) );
+
+            reduces.Add(new Tuple<int, string>(74, "<number>"), new Tuple<string, int>("<something>", 1) );
+
+            reduces.Add(new Tuple<int, string>(75, "<string>"), new Tuple<string, int>("<something>", 1) );
+
+            reduces.Add(new Tuple<int, string>(76, "<identifier>"), new Tuple<string, int>("<something>", 1) );
+            
+            reduces.Add(new Tuple<int, string>(77, "<logic_condition>"), new Tuple<string, int>("<something>", 1));
+
+            reduces.Add(new Tuple<int, string>(81, "<logic_condition>"), new Tuple<string, int>("<not_expression>", 2) );
+
+            reduces.Add(new Tuple<int, string>(87, "<case_statement>"), new Tuple<string, int>("<case_block>", 1) );
+
+            reduces.Add(new Tuple<int, string>(89, "<end_of_statement>"), new Tuple<string, int>("<atr>", 4) );
+
+            reduces.Add(new Tuple<int, string>(96, "<end_of_statement>"), new Tuple<string, int>("<assignment>", 5) );
+
+            reduces.Add(new Tuple<int, string>(98, "<logic_expression>"), new Tuple<string, int>("<logic_expression>", 3));
+
+            reduces.Add(new Tuple<int, string>(99, "<arithmetic_expression>"), new Tuple<string, int>("<relational_expression>", 3));
+
+            reduces.Add(new Tuple<int, string>(100, "<multiplicative_expression>"), new Tuple<string, int>("<sum_expression>", 3) );
+
+            reduces.Add(new Tuple<int, string>(101, "<operand>"), new Tuple<string, int>("<multiplicative_expression>", 3) );
+
+            reduces.Add(new Tuple<int, string>(102, "<close_parenthesis>"), new Tuple<string, int>("<multiplicative_expression>", 3) );
+
+            reduces.Add(new Tuple<int, string>(104, "<case_statement>"), new Tuple<string, int>("<case_block>", 2));
+
+            reduces.Add(new Tuple<int, string>(109, "<arithmetic_expression>"), new Tuple<string, int>("<exp>", 1) );
+
+            reduces.Add(new Tuple<int, string>(111, "<end_of_statement>"), new Tuple<string, int>("<read_statement>", 5));
+
+            reduces.Add(new Tuple<int, string>(112, "<end_of_statement>"), new Tuple<string, int>("<write_statement>", 5));
+
+            reduces.Add(new Tuple<int, string>(113, "<end_of_statement>"), new Tuple<string, int>("<assignment>", 5));
+
+            reduces.Add(new Tuple<int, string>(116, "<close_brace>"), new Tuple<string, int>("<switch_statement>", 6) );
+
+            reduces.Add(new Tuple<int, string>(121, "<end_of_statement>"), new Tuple<string, int>("<atr>", 4) );
+
+            reduces.Add(new Tuple<int, string>(124, "<close_brace>"), new Tuple<string, int>("<if_conditional>", 7));
+
+            reduces.Add(new Tuple<int, string>(126, "<multiplicative_expression>"), new Tuple<string, int>("<multiplicative_expression>", 5));
+
+            reduces.Add(new Tuple<int, string>(131, "<arithmetic_expression>"), new Tuple<string, int>("<relational_expression>", 3));
+
+            reduces.Add(new Tuple<int, string>(132, "<close_brace>"), new Tuple<string, int>("<while_statement>", 7) );
+
+            reduces.Add(new Tuple<int, string>(133, "<else_statement>"), new Tuple<string, int>("<if_or_else>", 8) );
+
+            reduces.Add(new Tuple<int, string>(139, "<number>"), new Tuple<string, int>("<itr>", 3) );
+
+            reduces.Add(new Tuple<int, string>(141, "<if_statement>"), new Tuple<string, int>("<else_statement>", 2) );
+            
+            reduces.Add(new Tuple<int, string>(142, "<operand>"), new Tuple<string, int>("<multiplicative_expression>", 3) );
+
+            reduces.Add(new Tuple<int, string>(143, "<close_brace>"), new Tuple<string, int>("<default_statement>", 6) );
+
+            reduces.Add(new Tuple<int, string>(147, "<close_brace>"), new Tuple<string, int>("<case_statement>", 7) );
+
+            reduces.Add(new Tuple<int, string>(148, "<close_brace>"), new Tuple<string, int>("<for_statement>", 10) );
+
+            reduces.Add(new Tuple<int, string>(149, "<close_brace>"), new Tuple<string, int>("<else_statement>", 4));
         }
 
         public void Parse()
