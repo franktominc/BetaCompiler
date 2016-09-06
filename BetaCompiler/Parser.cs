@@ -37,7 +37,7 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(0, "<declaration_zone_statement>"), 2);
             transitions.Add(new Tuple<int, string>(0, "<declaration_zone_token>"), 3);
 
-            transitions.Add(new Tuple<int, string>(2, "<code_zone_statement>"), 4);
+            transitions.Add(new Tuple<int, string>(2, "<code_zone_statement"), 4);
             transitions.Add(new Tuple<int, string>(2, "<code_zone_token>"), 5);
 
             transitions.Add(new Tuple<int, string>(3, "<open_brace>"), 6);
@@ -48,490 +48,456 @@ namespace Lexer
             transitions.Add(new Tuple<int, string>(6, "<assignment>"), 9);
             transitions.Add(new Tuple<int, string>(6, "<type>"), 10);
 
-            transitions.Add(new Tuple<int, string>(7, "<close_brace>"), 11);
-            transitions.Add(new Tuple<int, string>(7, "<statement>"), 12);
-            transitions.Add(new Tuple<int, string>(7, "<statement_type>"), 13);
+            transitions.Add(new Tuple<int, string>(7, "<statement>"), 11);
+            transitions.Add(new Tuple<int, string>(7, "<statement_type>"), 12);
+            transitions.Add(new Tuple<int, string>(7, "<conditional>"), 13);
             transitions.Add(new Tuple<int, string>(7, "<atr>"), 14);
-            transitions.Add(new Tuple<int, string>(7, "<conditional>"), 15);
-            transitions.Add(new Tuple<int, string>(7, "<rept>"), 16);
-            transitions.Add(new Tuple<int, string>(7, "<identifier>"), 17);
+            transitions.Add(new Tuple<int, string>(7, "<rept>"), 15);
+            transitions.Add(new Tuple<int, string>(7, "<read_statement>"), 16);
+            transitions.Add(new Tuple<int, string>(7, "<write_statement>"), 17);
             transitions.Add(new Tuple<int, string>(7, "<if_statement>"), 18);
             transitions.Add(new Tuple<int, string>(7, "<switch_statement>"), 19);
-            transitions.Add(new Tuple<int, string>(7, "<switch>"), 20);
-            transitions.Add(new Tuple<int, string>(7, "<if_conditional>"), 21);
-            transitions.Add(new Tuple<int, string>(7, "<if_or_else>"), 22);
-            transitions.Add(new Tuple<int, string>(7, "<if>"), 23);
-            transitions.Add(new Tuple<int, string>(7, "<for_statement>"), 24);
-            transitions.Add(new Tuple<int, string>(7, "<while_statement>"), 25);
-            transitions.Add(new Tuple<int, string>(7, "<for>"), 26);
-            transitions.Add(new Tuple<int, string>(7, "<while>"), 27);
-            transitions.Add(new Tuple<int, string>(7, "<read_statement>"), 145);
-            transitions.Add(new Tuple<int, string>(7, "<write_statement>"), 146);
-            transitions.Add(new Tuple<int, string>(7, "<read>"), 147);
-            transitions.Add(new Tuple<int, string>(7, "<write>"), 148);
-
-            transitions.Add(new Tuple<int, string>(8, "<close_brace>"), 28);
-
-            transitions.Add(new Tuple<int, string>(9, "<var_declaration>"), 29);
-            transitions.Add(new Tuple<int, string>(9, "<assignment>"), 9);
-            transitions.Add(new Tuple<int, string>(9, "<type>"), 160);
-
-            transitions.Add(new Tuple<int, string>(10, "<identifier>"), 30);
-
-            transitions.Add(new Tuple<int, string>(12, "<close_brace>"), 31);
-
-            transitions.Add(new Tuple<int, string>(13, "<statement>"), 32);
-            transitions.Add(new Tuple<int, string>(13, "<statement_type>"), 13);
-            transitions.Add(new Tuple<int, string>(13, "<atr>"), 14);
-            transitions.Add(new Tuple<int, string>(13, "<conditional>"), 15);
-            transitions.Add(new Tuple<int, string>(13, "<rept>"), 16);
-            transitions.Add(new Tuple<int, string>(13, "<identifier>"), 17);
-            transitions.Add(new Tuple<int, string>(13, "<if_statement>"), 18);
-            transitions.Add(new Tuple<int, string>(13, "<switch_statement>"), 19);
-            transitions.Add(new Tuple<int, string>(13, "<switch>"), 20);
-            transitions.Add(new Tuple<int, string>(13, "<if_conditional>"), 21);
-            transitions.Add(new Tuple<int, string>(13, "<if_or_else>"), 22);
-            transitions.Add(new Tuple<int, string>(13, "<if>"), 23);
-            transitions.Add(new Tuple<int, string>(13, "<for_statement>"), 24);
-            transitions.Add(new Tuple<int, string>(13, "<while_statement>"), 25);
-            transitions.Add(new Tuple<int, string>(13, "<for>"), 26);
-            transitions.Add(new Tuple<int, string>(13, "<while>"), 27);
-            transitions.Add(new Tuple<int, string>(13, "<read_statement>"), 145);
-            transitions.Add(new Tuple<int, string>(13, "<write_statement>"), 146);
-            transitions.Add(new Tuple<int, string>(13, "<read>"), 147);
-            transitions.Add(new Tuple<int, string>(13, "<write>"), 148);
-
-            transitions.Add(new Tuple<int, string>(17, "<attribution_operator>"), 33);
-
-            transitions.Add(new Tuple<int, string>(20, "<number>"), 34);
-            transitions.Add(new Tuple<int, string>(20, "<identifier>"), 35);
-
-            transitions.Add(new Tuple<int, string>(23, "<open_parenthesis>"), 36);
-
-            transitions.Add(new Tuple<int, string>(26, "<open_parenthesis>"), 37);
-
-            transitions.Add(new Tuple<int, string>(27, "<open_parenthesis>"), 38);
-
-            transitions.Add(new Tuple<int, string>(30, "<attribution_operator>"), 39);
-
-            transitions.Add(new Tuple<int, string>(33, "<exp>"), 40);
-            transitions.Add(new Tuple<int, string>(33, "<arithmetic_expression>"), 98);
-            transitions.Add(new Tuple<int, string>(33, "<logic_expression>"), 99);
-            transitions.Add(new Tuple<int, string>(33, "<logic_operand>"), 44);
-            transitions.Add(new Tuple<int, string>(33, "<sum_expression>"), 50);
-            transitions.Add(new Tuple<int, string>(33, "<multiplicative_expression>"), 51);
-            transitions.Add(new Tuple<int, string>(33, "<operand>"), 52);
-            transitions.Add(new Tuple<int, string>(33, "<open_parenthesis>"), 53);
-            transitions.Add(new Tuple<int, string>(33, "<identifier>"), 54);
-            transitions.Add(new Tuple<int, string>(33, "<number>"), 55);
-            transitions.Add(new Tuple<int, string>(33, "<logic_condition>"), 45);
-            transitions.Add(new Tuple<int, string>(33, "<relational_expression>"), 46);
-            transitions.Add(new Tuple<int, string>(33, "<not_expression>"), 47);
-            transitions.Add(new Tuple<int, string>(33, "<not_operator>"), 49);
-
-            transitions.Add(new Tuple<int, string>(34, "<open_brace>"), 41);
-
-            transitions.Add(new Tuple<int, string>(35, "<open_brace>"), 42);
-
-            transitions.Add(new Tuple<int, string>(36, "<logic_expression>"), 43);
-            transitions.Add(new Tuple<int, string>(36, "<logic_operand>"), 44);
-            transitions.Add(new Tuple<int, string>(36, "<logic_condition>"), 45);
-            transitions.Add(new Tuple<int, string>(36, "<relational_expression>"), 46);
-            transitions.Add(new Tuple<int, string>(36, "<not_expression>"), 47);
-            transitions.Add(new Tuple<int, string>(36, "<arithmetic_expression>"), 48);
-            transitions.Add(new Tuple<int, string>(36, "<not_operator>"), 49);
-            transitions.Add(new Tuple<int, string>(36, "<sum_expression>"), 50);
-            transitions.Add(new Tuple<int, string>(36, "<multiplicative_expression>"), 51);
-            transitions.Add(new Tuple<int, string>(36, "<operand>"), 52);
-            transitions.Add(new Tuple<int, string>(36, "<open_parenthesis>"), 53);
-            transitions.Add(new Tuple<int, string>(36, "<identifier>"), 54);
-            transitions.Add(new Tuple<int, string>(36, "<number>"), 55);
-
-            transitions.Add(new Tuple<int, string>(37, "<atr>"), 56);
-            transitions.Add(new Tuple<int, string>(37, "<identifier>"), 57);
-
-            transitions.Add(new Tuple<int, string>(38, "<logic_expression>"), 58);
-            transitions.Add(new Tuple<int, string>(38, "<logic_operand>"), 44);
-            transitions.Add(new Tuple<int, string>(38, "<logic_condition>"), 45);
-            transitions.Add(new Tuple<int, string>(38, "<relational_expression>"), 46);
-            transitions.Add(new Tuple<int, string>(38, "<not_expression>"), 47);
-            transitions.Add(new Tuple<int, string>(38, "<arithmetic_expression>"), 48);
-            transitions.Add(new Tuple<int, string>(38, "<not_operator>"), 49);
-            transitions.Add(new Tuple<int, string>(38, "<sum_expression>"), 50);
-            transitions.Add(new Tuple<int, string>(38, "<multiplicative_expression>"), 51);
-            transitions.Add(new Tuple<int, string>(38, "<operand>"), 52);
-            transitions.Add(new Tuple<int, string>(38, "<open_parenthesis>"), 53);
-            transitions.Add(new Tuple<int, string>(38, "<identifier>"), 54);
-            transitions.Add(new Tuple<int, string>(38, "<number>"), 55);
-
-            transitions.Add(new Tuple<int, string>(39, "<something>"), 59);
-            transitions.Add(new Tuple<int, string>(39, "<number>"), 60);
-            transitions.Add(new Tuple<int, string>(39, "<string>"), 61);
-            transitions.Add(new Tuple<int, string>(39, "<identifier>"), 62);
-
-            transitions.Add(new Tuple<int, string>(40, "<end_of_statement>"), 63);
-
-            transitions.Add(new Tuple<int, string>(41, "<close_brace>"), 83);
-            transitions.Add(new Tuple<int, string>(41, "<case_statement>"), 84);
-            transitions.Add(new Tuple<int, string>(41, "<default_statement>"), 85);
-            transitions.Add(new Tuple<int, string>(41, "<case>"), 86);
-            transitions.Add(new Tuple<int, string>(41, "<default>"), 68);
-
-            transitions.Add(new Tuple<int, string>(42, "<close_brace>"), 64);
-            transitions.Add(new Tuple<int, string>(42, "<case_statement>"), 65);
-            transitions.Add(new Tuple<int, string>(42, "<default_statement>"), 66);
-            transitions.Add(new Tuple<int, string>(42, "<case>"), 67);
-            transitions.Add(new Tuple<int, string>(42, "<default>"), 68);
-
-            transitions.Add(new Tuple<int, string>(43, "<close_parenthesis>"), 69);
-
-            transitions.Add(new Tuple<int, string>(48, "<relational_operator>"), 70);
-
-            transitions.Add(new Tuple<int, string>(49, "<logic_condition>"), 71);
-            transitions.Add(new Tuple<int, string>(49, "<identifier>"), 72);
-
-            transitions.Add(new Tuple<int, string>(51, "<sum_operator>"), 73);
-
-
-            transitions.Add(new Tuple<int, string>(52, "<multiplicative_operator>"), 74);
-
-            transitions.Add(new Tuple<int, string>(53, "<sum_expression>"), 75);
-            transitions.Add(new Tuple<int, string>(53, "<multiplicative_expression>"), 51);
-            transitions.Add(new Tuple<int, string>(53, "<operand>"), 52);
-            transitions.Add(new Tuple<int, string>(53, "<open_parenthesis>"), 53);
-            transitions.Add(new Tuple<int, string>(53, "<identifier>"), 54);
-            transitions.Add(new Tuple<int, string>(53, "<number>"), 55);
-
-            transitions.Add(new Tuple<int, string>(56, "<end_of_statement>"), 76);
-
-            transitions.Add(new Tuple<int, string>(57, "<attribution_operator>"), 77);
-
-            transitions.Add(new Tuple<int, string>(58, "<close_parenthesis>"), 78);
-
-            transitions.Add(new Tuple<int, string>(59, "<end_of_statement>"), 79);
-
-            transitions.Add(new Tuple<int, string>(65, "<close_brace>"), 80);
-            transitions.Add(new Tuple<int, string>(65, "<default_statement>"), 81);
-            transitions.Add(new Tuple<int, string>(65, "<default>"), 68);
-
-            transitions.Add(new Tuple<int, string>(66, "<close_brace>"), 82);
-
-            transitions.Add(new Tuple<int, string>(67, "<number>"), 87);
-
-            transitions.Add(new Tuple<int, string>(68, "<statement>"), 88);
-            transitions.Add(new Tuple<int, string>(68, "<break>"), 89);
-            transitions.Add(new Tuple<int, string>(68, "<end_of_statement>"), 90);
-            transitions.Add(new Tuple<int, string>(68, "<statement_type>"), 13);
-            transitions.Add(new Tuple<int, string>(68, "<atr>"), 14);
-            transitions.Add(new Tuple<int, string>(68, "<conditional>"), 15);
-            transitions.Add(new Tuple<int, string>(68, "<rept>"), 16);
-            transitions.Add(new Tuple<int, string>(68, "<identifier>"), 17);
-            transitions.Add(new Tuple<int, string>(68, "<if_statement>"), 18);
-            transitions.Add(new Tuple<int, string>(68, "<switch_statement>"), 19);
-            transitions.Add(new Tuple<int, string>(68, "<switch>"), 20);
-            transitions.Add(new Tuple<int, string>(68, "<if_conditional>"), 21);
-            transitions.Add(new Tuple<int, string>(68, "<if_or_else>"), 22);
-            transitions.Add(new Tuple<int, string>(68, "<if>"), 23);
-            transitions.Add(new Tuple<int, string>(68, "<for_statement>"), 24);
-            transitions.Add(new Tuple<int, string>(68, "<while_statement>"), 25);
-            transitions.Add(new Tuple<int, string>(68, "<for>"), 26);
-            transitions.Add(new Tuple<int, string>(68, "<while>"), 27);
-            transitions.Add(new Tuple<int, string>(68, "<read_statement>"), 145);
-            transitions.Add(new Tuple<int, string>(68, "<write_statement>"), 146);
-            transitions.Add(new Tuple<int, string>(68, "<read>"), 147);
-            transitions.Add(new Tuple<int, string>(68, "<write>"), 148);
-
-            transitions.Add(new Tuple<int, string>(69, "<open_brace>"), 91);
-
-            transitions.Add(new Tuple<int, string>(70, "<arithmetic_expression>"), 92);
-            transitions.Add(new Tuple<int, string>(70, "<sum_expression>"), 50);
-            transitions.Add(new Tuple<int, string>(70, "<multiplicative_expression>"), 51);
-            transitions.Add(new Tuple<int, string>(70, "<operand>"), 52);
-            transitions.Add(new Tuple<int, string>(70, "<open_parenthesis>"), 53);
-            transitions.Add(new Tuple<int, string>(70, "<identifier>"), 54);
-            transitions.Add(new Tuple<int, string>(70, "<number>"), 55);
-
-            transitions.Add(new Tuple<int, string>(73, "<sum_expression>"), 93);
-            transitions.Add(new Tuple<int, string>(73, "<multiplicative_expression>"), 51);
-            transitions.Add(new Tuple<int, string>(73, "<operand>"), 52);
-            transitions.Add(new Tuple<int, string>(73, "<open_parenthesis>"), 53);
-            transitions.Add(new Tuple<int, string>(73, "<identifier>"), 54);
-            transitions.Add(new Tuple<int, string>(73, "<number>"), 55);
-
-            transitions.Add(new Tuple<int, string>(74, "<multiplicative_expression>"), 94);
-            transitions.Add(new Tuple<int, string>(74, "<operand>"), 52);
-            transitions.Add(new Tuple<int, string>(74, "<open_parenthesis>"), 53);
-            transitions.Add(new Tuple<int, string>(74, "<identifier>"), 54);
-
-            transitions.Add(new Tuple<int, string>(75, "<close_parenthesis>"), 95);
-
-            transitions.Add(new Tuple<int, string>(76, "<logic_expression>"), 96);
-            transitions.Add(new Tuple<int, string>(76, "<logic_operand>"), 44);
-            transitions.Add(new Tuple<int, string>(76, "<logic_condition>"), 45);
-            transitions.Add(new Tuple<int, string>(76, "<relational_expression>"), 46);
-            transitions.Add(new Tuple<int, string>(76, "<not_expression>"), 47);
-            transitions.Add(new Tuple<int, string>(76, "<arithmetic_expression>"), 48);
-            transitions.Add(new Tuple<int, string>(76, "<not_operator>"), 49);
-            transitions.Add(new Tuple<int, string>(76, "<sum_expression>"), 50);
-            transitions.Add(new Tuple<int, string>(76, "<multiplicative_expression>"), 51);
-            transitions.Add(new Tuple<int, string>(76, "<operand>"), 52);
-            transitions.Add(new Tuple<int, string>(76, "<open_parenthesis>"), 53);
-            transitions.Add(new Tuple<int, string>(76, "<identifier>"), 54);
-            transitions.Add(new Tuple<int, string>(76, "<number>"), 55);
-
-            transitions.Add(new Tuple<int, string>(77, "<attribution_operator>"), 97);
-            transitions.Add(new Tuple<int, string>(77, "<arithmetic_expression>"), 98);
-            transitions.Add(new Tuple<int, string>(77, "<logic_expression>"), 99);
-            transitions.Add(new Tuple<int, string>(77, "<logic_operand>"), 44);
-            transitions.Add(new Tuple<int, string>(77, "<logic_condition>"), 45);
-            transitions.Add(new Tuple<int, string>(77, "<relational_expression>"), 46);
-            transitions.Add(new Tuple<int, string>(77, "<not_expression>"), 47);
-            transitions.Add(new Tuple<int, string>(77, "<not_operator>"), 49);
-            transitions.Add(new Tuple<int, string>(77, "<sum_expression>"), 50);
-            transitions.Add(new Tuple<int, string>(77, "<multiplicative_expression>"), 51);
-            transitions.Add(new Tuple<int, string>(77, "<operand>"), 52);
-            transitions.Add(new Tuple<int, string>(77, "<open_parenthesis>"), 53);
-            transitions.Add(new Tuple<int, string>(77, "<identifier>"), 54);
-            transitions.Add(new Tuple<int, string>(77, "<number>"), 55);
-            transitions.Add(new Tuple<int, string>(77, "<exp>"), 165);
-
-            transitions.Add(new Tuple<int, string>(78, "<open_brace>"), 100);
-
-            transitions.Add(new Tuple<int, string>(81, "<close_brace>"), 101);
-
-            transitions.Add(new Tuple<int, string>(84, "<close_brace>"), 102);
-            transitions.Add(new Tuple<int, string>(84, "<default_statement>"), 103);
-            transitions.Add(new Tuple<int, string>(84, "<default>"), 68);
-
-            transitions.Add(new Tuple<int, string>(85, "<close_brace>"), 104);
-
-            transitions.Add(new Tuple<int, string>(86, "<number>"), 105);
-
-            transitions.Add(new Tuple<int, string>(87, "<statement>"), 106);
-            transitions.Add(new Tuple<int, string>(87, "<break>"), 107);
-            transitions.Add(new Tuple<int, string>(87, "<statement_type>"), 13);
-            transitions.Add(new Tuple<int, string>(87, "<atr>"), 14);
-            transitions.Add(new Tuple<int, string>(87, "<conditional>"), 15);
-            transitions.Add(new Tuple<int, string>(87, "<rept>"), 16);
-            transitions.Add(new Tuple<int, string>(87, "<identifier>"), 17);
-            transitions.Add(new Tuple<int, string>(87, "<if_statement>"), 18);
-            transitions.Add(new Tuple<int, string>(87, "<switch_statement>"), 19);
-            transitions.Add(new Tuple<int, string>(87, "<switch>"), 20);
-            transitions.Add(new Tuple<int, string>(87, "<if_conditional>"), 21);
-            transitions.Add(new Tuple<int, string>(87, "<if_or_else>"), 22);
-            transitions.Add(new Tuple<int, string>(87, "<if>"), 23);
-            transitions.Add(new Tuple<int, string>(87, "<for_statement>"), 24);
-            transitions.Add(new Tuple<int, string>(87, "<while_statement>"), 25);
-            transitions.Add(new Tuple<int, string>(87, "<for>"), 26);
-            transitions.Add(new Tuple<int, string>(87, "<while>"), 27);
-            transitions.Add(new Tuple<int, string>(87, "<read_statement>"), 145);
-            transitions.Add(new Tuple<int, string>(87, "<write_statement>"), 146);
-            transitions.Add(new Tuple<int, string>(87, "<read>"), 147);
-            transitions.Add(new Tuple<int, string>(87, "<write>"), 148);
-
-            transitions.Add(new Tuple<int, string>(88, "<break>"), 108);
-            transitions.Add(new Tuple<int, string>(88, "<end_of_statement>"), 109);
-
-            transitions.Add(new Tuple<int, string>(89, "<end_of_statement>"), 110);
-
-            transitions.Add(new Tuple<int, string>(91, "<statement>"), 111);
-            transitions.Add(new Tuple<int, string>(91, "<statement_type>"), 13);
-            transitions.Add(new Tuple<int, string>(91, "<atr>"), 14);
-            transitions.Add(new Tuple<int, string>(91, "<conditional>"), 15);
-            transitions.Add(new Tuple<int, string>(91, "<rept>"), 16);
-            transitions.Add(new Tuple<int, string>(91, "<identifier>"), 17);
-            transitions.Add(new Tuple<int, string>(91, "<if_statement>"), 18);
-            transitions.Add(new Tuple<int, string>(91, "<switch_statement>"), 19);
-            transitions.Add(new Tuple<int, string>(91, "<switch>"), 20);
-            transitions.Add(new Tuple<int, string>(91, "<if_conditional>"), 21);
-            transitions.Add(new Tuple<int, string>(91, "<if_or_else>"), 22);
-            transitions.Add(new Tuple<int, string>(91, "<if>"), 23);
-            transitions.Add(new Tuple<int, string>(91, "<for_statement>"), 24);
-            transitions.Add(new Tuple<int, string>(91, "<while_statement>"), 25);
-            transitions.Add(new Tuple<int, string>(91, "<for>"), 26);
-            transitions.Add(new Tuple<int, string>(91, "<while>"), 27);
-            transitions.Add(new Tuple<int, string>(91, "<read_statement>"), 145);
-            transitions.Add(new Tuple<int, string>(91, "<write_statement>"), 146);
-            transitions.Add(new Tuple<int, string>(91, "<read>"), 147);
-            transitions.Add(new Tuple<int, string>(91, "<write>"), 148);
-
-            transitions.Add(new Tuple<int, string>(95, "<multiplicative_operator>"), 112);
-
-            transitions.Add(new Tuple<int, string>(96, "<end_of_statement>"), 113);
-
-            transitions.Add(new Tuple<int, string>(97, "<end_of_statement>"), 114);
-
-            transitions.Add(new Tuple<int, string>(100, "<statement>"), 115);
-            transitions.Add(new Tuple<int, string>(100, "<close_brace>"), 116);
-            transitions.Add(new Tuple<int, string>(100, "<statement_type>"), 13);
-            transitions.Add(new Tuple<int, string>(100, "<atr>"), 14);
-            transitions.Add(new Tuple<int, string>(100, "<conditional>"), 15);
-            transitions.Add(new Tuple<int, string>(100, "<rept>"), 16);
-            transitions.Add(new Tuple<int, string>(100, "<identifier>"), 17);
-            transitions.Add(new Tuple<int, string>(100, "<if_statement>"), 18);
-            transitions.Add(new Tuple<int, string>(100, "<switch_statement>"), 19);
-            transitions.Add(new Tuple<int, string>(100, "<switch>"), 20);
-            transitions.Add(new Tuple<int, string>(100, "<if_conditional>"), 21);
-            transitions.Add(new Tuple<int, string>(100, "<if_or_else>"), 22);
-            transitions.Add(new Tuple<int, string>(100, "<if>"), 23);
-            transitions.Add(new Tuple<int, string>(100, "<for_statement>"), 24);
-            transitions.Add(new Tuple<int, string>(100, "<while_statement>"), 25);
-            transitions.Add(new Tuple<int, string>(100, "<for>"), 26);
-            transitions.Add(new Tuple<int, string>(100, "<while>"), 27);
-            transitions.Add(new Tuple<int, string>(100, "<read_statement>"), 145);
-            transitions.Add(new Tuple<int, string>(100, "<write_statement>"), 146);
-            transitions.Add(new Tuple<int, string>(100, "<read>"), 147);
-            transitions.Add(new Tuple<int, string>(100, "<write>"), 148);
-
-            transitions.Add(new Tuple<int, string>(103, "<close_brace>"), 117);
-
-            transitions.Add(new Tuple<int, string>(105, "<statement>"), 118);
-            transitions.Add(new Tuple<int, string>(105, "<break>"), 119);
-            transitions.Add(new Tuple<int, string>(105, "<statement_type>"), 13);
-            transitions.Add(new Tuple<int, string>(105, "<atr>"), 14);
-            transitions.Add(new Tuple<int, string>(105, "<conditional>"), 15);
-            transitions.Add(new Tuple<int, string>(105, "<rept>"), 16);
-            transitions.Add(new Tuple<int, string>(105, "<identifier>"), 17);
-            transitions.Add(new Tuple<int, string>(105, "<if_statement>"), 18);
-            transitions.Add(new Tuple<int, string>(105, "<switch_statement>"), 19);
-            transitions.Add(new Tuple<int, string>(105, "<switch>"), 20);
-            transitions.Add(new Tuple<int, string>(105, "<if_conditional>"), 21);
-            transitions.Add(new Tuple<int, string>(105, "<if_or_else>"), 22);
-            transitions.Add(new Tuple<int, string>(105, "<if>"), 23);
-            transitions.Add(new Tuple<int, string>(105, "<for_statement>"), 24);
-            transitions.Add(new Tuple<int, string>(105, "<while_statement>"), 25);
-            transitions.Add(new Tuple<int, string>(105, "<for>"), 26);
-            transitions.Add(new Tuple<int, string>(105, "<while>"), 27);
-            transitions.Add(new Tuple<int, string>(105, "<read_statement>"), 145);
-            transitions.Add(new Tuple<int, string>(105, "<write_statement>"), 146);
-            transitions.Add(new Tuple<int, string>(105, "<read>"), 147);
-            transitions.Add(new Tuple<int, string>(105, "<write>"), 148);
-
-            transitions.Add(new Tuple<int, string>(106, "<break>"), 120);
-
-            transitions.Add(new Tuple<int, string>(107, "<end_of_statement>"), 121);
-
-            transitions.Add(new Tuple<int, string>(108, "<end_of_statement>"), 122);
-
-            transitions.Add(new Tuple<int, string>(111, "<close_brace>"), 123);
-
-            transitions.Add(new Tuple<int, string>(112, "<multiplicative_expression>"), 124);
-            transitions.Add(new Tuple<int, string>(112, "<operand>"), 52);
-            transitions.Add(new Tuple<int, string>(112, "<open_parenthesis>"), 53);
-            transitions.Add(new Tuple<int, string>(112, "<identifier>"), 54);
-            transitions.Add(new Tuple<int, string>(112, "<number>"), 55);
-
-            transitions.Add(new Tuple<int, string>(113, "<itr>"), 125);
-            transitions.Add(new Tuple<int, string>(113, "<identifier>"), 126);
-
-            transitions.Add(new Tuple<int, string>(115, "<close_brace>"), 127);
-
-            transitions.Add(new Tuple<int, string>(118, "<break>"), 128);
-
-            transitions.Add(new Tuple<int, string>(119, "<end_of_statement>"), 129);
-
-            transitions.Add(new Tuple<int, string>(120, "<end_of_statement>"), 130);
-
-            transitions.Add(new Tuple<int, string>(123, "<else_statement>"), 131);
-            transitions.Add(new Tuple<int, string>(123, "<else>"), 132);
-
-            transitions.Add(new Tuple<int, string>(125, "<close_parenthesis>"), 133);
-
-            transitions.Add(new Tuple<int, string>(126, "<iteration_operator>"), 134);
-
-            transitions.Add(new Tuple<int, string>(128, "<end_of_statement>"), 135);
-
-            transitions.Add(new Tuple<int, string>(132, "<open_brace>"), 136);
-            transitions.Add(new Tuple<int, string>(132, "<if_statement>"), 137);
-            transitions.Add(new Tuple<int, string>(132, "<if_conditional>"), 21);
-            transitions.Add(new Tuple<int, string>(132, "<if_or_else>"), 22);
-
-            transitions.Add(new Tuple<int, string>(133, "<open_brace>"), 138);
-            transitions.Add(new Tuple<int, string>(133, "<if>"), 23);
-
-            transitions.Add(new Tuple<int, string>(134, "<number>"), 139);
-
-            transitions.Add(new Tuple<int, string>(136, "<open_brace>"), 140);
-            transitions.Add(new Tuple<int, string>(136, "<statement_type>"), 13);
-            transitions.Add(new Tuple<int, string>(136, "<atr>"), 14);
-            transitions.Add(new Tuple<int, string>(136, "<conditional>"), 15);
-            transitions.Add(new Tuple<int, string>(136, "<rept>"), 16);
-            transitions.Add(new Tuple<int, string>(136, "<identifier>"), 17);
-            transitions.Add(new Tuple<int, string>(136, "<if_statement>"), 18);
-            transitions.Add(new Tuple<int, string>(136, "<switch_statement>"), 19);
-            transitions.Add(new Tuple<int, string>(136, "<switch>"), 20);
-            transitions.Add(new Tuple<int, string>(136, "<if_conditional>"), 21);
-            transitions.Add(new Tuple<int, string>(136, "<if_or_else>"), 22);
-            transitions.Add(new Tuple<int, string>(136, "<if>"), 23);
-            transitions.Add(new Tuple<int, string>(136, "<for_statement>"), 24);
-            transitions.Add(new Tuple<int, string>(136, "<while_statement>"), 25);
-            transitions.Add(new Tuple<int, string>(136, "<for>"), 26);
-            transitions.Add(new Tuple<int, string>(136, "<while>"), 27);
-            transitions.Add(new Tuple<int, string>(136, "<read_statement>"), 145);
-            transitions.Add(new Tuple<int, string>(136, "<write_statement>"), 146);
-            transitions.Add(new Tuple<int, string>(136, "<read>"), 147);
-            transitions.Add(new Tuple<int, string>(136, "<write>"), 148);
-
-            transitions.Add(new Tuple<int, string>(138, "<statement>"), 141);
-            transitions.Add(new Tuple<int, string>(138, "<close_brace>"), 142);
-            transitions.Add(new Tuple<int, string>(138, "<statement_type>"), 13);
+            transitions.Add(new Tuple<int, string>(7, "<if_conditional>"), 20);
+            transitions.Add(new Tuple<int, string>(7, "<if_or_else>"), 21);
+            transitions.Add(new Tuple<int, string>(7, "<if>"), 22);
+            transitions.Add(new Tuple<int, string>(7, "<switch>"), 23);
+            transitions.Add(new Tuple<int, string>(7, "<identifier>"), 24);
+            transitions.Add(new Tuple<int, string>(7, "<for_statement>"), 25);
+            transitions.Add(new Tuple<int, string>(7, "<while_statement>"), 26);
+            transitions.Add(new Tuple<int, string>(7, "<for>"), 27);
+            transitions.Add(new Tuple<int, string>(7, "<while>"), 28);
+            transitions.Add(new Tuple<int, string>(7, "<read>"), 29);
+            transitions.Add(new Tuple<int, string>(7, "<write>"), 30);
+
+            transitions.Add(new Tuple<int, string>(8, "<close_brace>"), 31);
+            transitions.Add(new Tuple<int, string>(8, "<assignment>"), 32);
+            transitions.Add(new Tuple<int, string>(8, "<type>"), 33);
+
+            transitions.Add(new Tuple<int, string>(10, "<identifier>"), 34);
+
+            transitions.Add(new Tuple<int, string>(11, "<close_brace>"), 35);
+            transitions.Add(new Tuple<int, string>(11, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(11, "<conditional>"), 13);
+            transitions.Add(new Tuple<int, string>(11, "<atr>"), 14);
+            transitions.Add(new Tuple<int, string>(11, "<rept>"), 15);
+            transitions.Add(new Tuple<int, string>(11, "<read_statement>"), 16);
+            transitions.Add(new Tuple<int, string>(11, "<write_statement>"), 17);
+            transitions.Add(new Tuple<int, string>(11, "<if_statement>"), 18);
+            transitions.Add(new Tuple<int, string>(11, "<switch_statement>"), 19);
+            transitions.Add(new Tuple<int, string>(11, "<if_conditional>"), 20);
+            transitions.Add(new Tuple<int, string>(11, "<if_or_else>"), 21);
+            transitions.Add(new Tuple<int, string>(11, "<if>"), 22);
+            transitions.Add(new Tuple<int, string>(11, "<switch>"), 23);
+            transitions.Add(new Tuple<int, string>(11, "<identifier>"), 24);
+            transitions.Add(new Tuple<int, string>(11, "<for_statement>"), 25);
+            transitions.Add(new Tuple<int, string>(11, "<while_statement>"), 26);
+            transitions.Add(new Tuple<int, string>(11, "<for>"), 27);
+            transitions.Add(new Tuple<int, string>(11, "<while>"), 28);
+            transitions.Add(new Tuple<int, string>(11, "<read>"), 29);
+            transitions.Add(new Tuple<int, string>(11, "<write>"), 30);
+
+            transitions.Add(new Tuple<int, string>(22, "<open_parenthesis>"), 37);
+
+            transitions.Add(new Tuple<int, string>(23, "<operand>"), 38);
+            transitions.Add(new Tuple<int, string>(23, "<identifier>"), 39);
+            transitions.Add(new Tuple<int, string>(23, "<number>"), 40);
+
+            transitions.Add(new Tuple<int, string>(24, "<atribution_operator>"), 41);
+
+            transitions.Add(new Tuple<int, string>(27, "<open_parenthesis>"), 42);
+
+            transitions.Add(new Tuple<int, string>(28, "<open_parenthesis>"), 43);
+
+            transitions.Add(new Tuple<int, string>(29, "<open_parenthesis>"), 44);
+
+            transitions.Add(new Tuple<int, string>(30, "<open_parenthesis>"), 45);
+
+            transitions.Add(new Tuple<int, string>(33, "<identifier>"), 46);
+
+            transitions.Add(new Tuple<int, string>(34, "<atribution_operator>"), 47);
+
+            transitions.Add(new Tuple<int, string>(37, "<logic_expression>"), 48);
+            transitions.Add(new Tuple<int, string>(37, "<logic_operand>"), 49);
+            transitions.Add(new Tuple<int, string>(37, "<logic_condition>"), 50);
+            transitions.Add(new Tuple<int, string>(37, "<relational_expression>"), 51);
+            transitions.Add(new Tuple<int, string>(37, "<not_expression>"), 52);
+            transitions.Add(new Tuple<int, string>(37, "<arithmetic_expression>"), 53);
+            transitions.Add(new Tuple<int, string>(37, "<not_operator>"), 54);
+            transitions.Add(new Tuple<int, string>(37, "<sum_expression>"), 55);
+            transitions.Add(new Tuple<int, string>(37, "<multiplicative_expression>"), 56);
+            transitions.Add(new Tuple<int, string>(37, "<open_parenthesis>"), 57);
+            transitions.Add(new Tuple<int, string>(37, "<operand>"), 58);
+            transitions.Add(new Tuple<int, string>(37, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(37, "<number>"), 60);
+
+            transitions.Add(new Tuple<int, string>(38, "<open_brace>"), 61);
+
+            transitions.Add(new Tuple<int, string>(41, "<exp>"), 62);
+            transitions.Add(new Tuple<int, string>(41, "<arithmetic_expression>"), 63);
+            transitions.Add(new Tuple<int, string>(41, "<logic_expression>"), 64);
+            transitions.Add(new Tuple<int, string>(41, "<logic_operand>"), 49);
+            transitions.Add(new Tuple<int, string>(41, "<logic_condition>"), 50);
+            transitions.Add(new Tuple<int, string>(41, "<relational_expression>"), 51);
+            transitions.Add(new Tuple<int, string>(41, "<not_expression>"), 52);
+            transitions.Add(new Tuple<int, string>(41, "<arithmetic_expression>"), 53);
+            transitions.Add(new Tuple<int, string>(41, "<not_operator>"), 54);
+            transitions.Add(new Tuple<int, string>(41, "<sum_expression>"), 55);
+            transitions.Add(new Tuple<int, string>(41, "<multiplicative_expression>"), 56);
+            transitions.Add(new Tuple<int, string>(41, "<open_parenthesis>"), 57);
+            transitions.Add(new Tuple<int, string>(41, "<operand>"), 58);
+            transitions.Add(new Tuple<int, string>(41, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(41, "<number>"), 60);
+
+            transitions.Add(new Tuple<int, string>(42, "<atr>"), 65);
+            transitions.Add(new Tuple<int, string>(42, "<identifier>"), 66);
+
+            transitions.Add(new Tuple<int, string>(43, "<logic_expression>"), 67);
+            transitions.Add(new Tuple<int, string>(43, "<logic_operand>"), 49);
+            transitions.Add(new Tuple<int, string>(43, "<logic_condition>"), 50);
+            transitions.Add(new Tuple<int, string>(43, "<relational_expression>"), 51);
+            transitions.Add(new Tuple<int, string>(43, "<not_expression>"), 52);
+            transitions.Add(new Tuple<int, string>(43, "<arithmetic_expression>"), 53);
+            transitions.Add(new Tuple<int, string>(43, "<not_operator>"), 54);
+            transitions.Add(new Tuple<int, string>(43, "<sum_expression>"), 55);
+            transitions.Add(new Tuple<int, string>(43, "<multiplicative_expression>"), 56);
+            transitions.Add(new Tuple<int, string>(43, "<open_parenthesis>"), 57);
+            transitions.Add(new Tuple<int, string>(43, "<operand>"), 58);
+            transitions.Add(new Tuple<int, string>(43, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(43, "<number>"), 60);
+
+            transitions.Add(new Tuple<int, string>(44, "<identifier>"), 68);
+
+            transitions.Add(new Tuple<int, string>(45, "<write_operator>"), 69);
+            transitions.Add(new Tuple<int, string>(45, "<string>"), 70);
+            transitions.Add(new Tuple<int, string>(45, "<identifier>"), 71);
+
+            transitions.Add(new Tuple<int, string>(46, "<atribution_operator>"), 72);
+
+            transitions.Add(new Tuple<int, string>(47, "<something>"), 73);
+            transitions.Add(new Tuple<int, string>(47, "<number>"), 74);
+            transitions.Add(new Tuple<int, string>(47, "<string>"), 75);
+            transitions.Add(new Tuple<int, string>(47, "<identifier>"), 76);
+            transitions.Add(new Tuple<int, string>(47, "<logic_condition>"), 77);
+
+            transitions.Add(new Tuple<int, string>(48, "<close_parenthesis>"), 78);
+
+            transitions.Add(new Tuple<int, string>(49, "<logic_operator>"), 79);
+
+            transitions.Add(new Tuple<int, string>(53, "<relational_operator>"), 80);
+
+            transitions.Add(new Tuple<int, string>(54, "<logic_condition>"), 81);
+            transitions.Add(new Tuple<int, string>(54, "<identifier>"), 82);
+
+            transitions.Add(new Tuple<int, string>(55, "<sum_operator>"), 83);
+
+            transitions.Add(new Tuple<int, string>(56, "<multiplicative_operator>"), 84);
+
+            transitions.Add(new Tuple<int, string>(57, "<sum_expression>"), 85);
+            transitions.Add(new Tuple<int, string>(57, "<multiplicative_expression>"), 56);
+            transitions.Add(new Tuple<int, string>(57, "<open_parenthesis>"), 57);
+            transitions.Add(new Tuple<int, string>(57, "<operand>"), 58);
+            transitions.Add(new Tuple<int, string>(57, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(57, "<number>"), 60);
+
+            transitions.Add(new Tuple<int, string>(61, "<case_block>"), 86);
+            transitions.Add(new Tuple<int, string>(61, "<case_statement>"), 87);
+            transitions.Add(new Tuple<int, string>(61, "<case>"), 88);
+
+            transitions.Add(new Tuple<int, string>(62, "<end_of_statement>"), 89);
+
+            transitions.Add(new Tuple<int, string>(65, "<logic_expression>"), 90);
+            transitions.Add(new Tuple<int, string>(43, "<logic_operand>"), 49);
+            transitions.Add(new Tuple<int, string>(43, "<logic_condition>"), 50);
+            transitions.Add(new Tuple<int, string>(43, "<relational_expression>"), 51);
+            transitions.Add(new Tuple<int, string>(43, "<not_expression>"), 52);
+            transitions.Add(new Tuple<int, string>(43, "<arithmetic_expression>"), 53);
+            transitions.Add(new Tuple<int, string>(43, "<not_operator>"), 54);
+            transitions.Add(new Tuple<int, string>(43, "<sum_expression>"), 55);
+            transitions.Add(new Tuple<int, string>(43, "<multiplicative_expression>"), 56);
+            transitions.Add(new Tuple<int, string>(43, "<open_parenthesis>"), 57);
+            transitions.Add(new Tuple<int, string>(43, "<operand>"), 58);
+            transitions.Add(new Tuple<int, string>(43, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(43, "<number>"), 60);
+
+            transitions.Add(new Tuple<int, string>(66, "<atribution_operator>"), 91);
+
+            transitions.Add(new Tuple<int, string>(67, "<close_parenthesis>"), 92);
+
+            transitions.Add(new Tuple<int, string>(68, "<close_parenthesis>"), 93);
+
+            transitions.Add(new Tuple<int, string>(69, "<close_parenthesis>"), 94);
+
+            transitions.Add(new Tuple<int, string>(72, "<something>"), 95);
+            transitions.Add(new Tuple<int, string>(72, "<number>"), 74);
+            transitions.Add(new Tuple<int, string>(72, "<string>"), 75);
+            transitions.Add(new Tuple<int, string>(72, "<identifier>"), 76);
+            transitions.Add(new Tuple<int, string>(72, "<logic_condition>"), 77);
+
+            transitions.Add(new Tuple<int, string>(73, "<end_of_statement>"), 96);
+
+            transitions.Add(new Tuple<int, string>(78, "<open_brace>"), 97);
+
+            transitions.Add(new Tuple<int, string>(79, "<logic_expression>"), 98);
+            transitions.Add(new Tuple<int, string>(79, "<logic_operand>"), 49);
+            transitions.Add(new Tuple<int, string>(79, "<logic_condition>"), 50);
+            transitions.Add(new Tuple<int, string>(79, "<relational_expression>"), 51);
+            transitions.Add(new Tuple<int, string>(79, "<not_expression>"), 52);
+            transitions.Add(new Tuple<int, string>(79, "<arithmetic_expression>"), 53);
+            transitions.Add(new Tuple<int, string>(79, "<not_operator>"), 54);
+            transitions.Add(new Tuple<int, string>(79, "<sum_expression>"), 55);
+            transitions.Add(new Tuple<int, string>(79, "<multiplicative_expression>"), 56);
+            transitions.Add(new Tuple<int, string>(79, "<open_parenthesis>"), 57);
+            transitions.Add(new Tuple<int, string>(79, "<operand>"), 58);
+            transitions.Add(new Tuple<int, string>(79, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(79, "<number>"), 60);
+
+            transitions.Add(new Tuple<int, string>(80, "<arithmetic_expression>"), 99);
+            transitions.Add(new Tuple<int, string>(80, "<sum_expression>"), 55);
+            transitions.Add(new Tuple<int, string>(80, "<multiplicative_expression>"), 56);
+            transitions.Add(new Tuple<int, string>(80, "<open_parenthesis>"), 57);
+            transitions.Add(new Tuple<int, string>(80, "<operand>"), 58);
+            transitions.Add(new Tuple<int, string>(80, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(80, "<number>"), 60);
+
+            transitions.Add(new Tuple<int, string>(83, "<multiplicative_expression>"), 100);
+            transitions.Add(new Tuple<int, string>(83, "<open_parenthesis>"), 57);
+            transitions.Add(new Tuple<int, string>(83, "<operand>"), 58);
+            transitions.Add(new Tuple<int, string>(83, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(83, "<number>"), 60);
+
+            transitions.Add(new Tuple<int, string>(84, "<operand>"), 101);
+            transitions.Add(new Tuple<int, string>(84, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(84, "<number>"), 60);
+
+            transitions.Add(new Tuple<int, string>(85, "<close_parenthesis>"), 102);
+
+            transitions.Add(new Tuple<int, string>(86, "<default_statement>"), 103);
+            transitions.Add(new Tuple<int, string>(86, "<case_statement>"), 104);
+            transitions.Add(new Tuple<int, string>(86, "<default>"), 105);
+            transitions.Add(new Tuple<int, string>(86, "<case>"), 88);
+
+            transitions.Add(new Tuple<int, string>(88, "<number>"), 106);
+
+            transitions.Add(new Tuple<int, string>(90, "<end_of_statement>"), 107);
+
+            transitions.Add(new Tuple<int, string>(91, "<exp>"), 108);
+            transitions.Add(new Tuple<int, string>(91, "<arithmetic_expression>"), 109);
+            transitions.Add(new Tuple<int, string>(91, "<logic_expression>"), 64);
+            transitions.Add(new Tuple<int, string>(91, "<logic_operand>"), 49);
+            transitions.Add(new Tuple<int, string>(91, "<logic_condition>"), 50);
+            transitions.Add(new Tuple<int, string>(91, "<relational_expression>"), 51);
+            transitions.Add(new Tuple<int, string>(91, "<not_expression>"), 52);
+            transitions.Add(new Tuple<int, string>(91, "<not_operator>"), 54);
+            transitions.Add(new Tuple<int, string>(91, "<sum_expression>"), 55);
+            transitions.Add(new Tuple<int, string>(91, "<multiplicative_expression>"), 56);
+            transitions.Add(new Tuple<int, string>(91, "<open_parenthesis>"), 57);
+            transitions.Add(new Tuple<int, string>(91, "<operand>"), 58);
+            transitions.Add(new Tuple<int, string>(91, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(91, "<number>"), 60);
+
+            transitions.Add(new Tuple<int, string>(92, "<open_brace>"), 110);
+
+            transitions.Add(new Tuple<int, string>(93, "<end_of_statement>"), 111);
+
+            transitions.Add(new Tuple<int, string>(94, "<end_of_statement>"), 112);
+
+            transitions.Add(new Tuple<int, string>(95, "<end_of_statement>"), 113);
+
+            transitions.Add(new Tuple<int, string>(97, "<statement>"), 114);
+            transitions.Add(new Tuple<int, string>(97, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(97, "<conditional>"), 13);
+            transitions.Add(new Tuple<int, string>(97, "<atr>"), 14);
+            transitions.Add(new Tuple<int, string>(97, "<rept>"), 15);
+            transitions.Add(new Tuple<int, string>(97, "<read_statement>"), 16);
+            transitions.Add(new Tuple<int, string>(97, "<write_statement>"), 17);
+            transitions.Add(new Tuple<int, string>(97, "<if_statement>"), 18);
+            transitions.Add(new Tuple<int, string>(97, "<switch_statement>"), 19);
+            transitions.Add(new Tuple<int, string>(97, "<if_conditional>"), 20);
+            transitions.Add(new Tuple<int, string>(97, "<if_or_else>"), 21);
+            transitions.Add(new Tuple<int, string>(97, "<if>"), 22);
+            transitions.Add(new Tuple<int, string>(97, "<switch>"), 23);
+            transitions.Add(new Tuple<int, string>(97, "<identifier>"), 24);
+            transitions.Add(new Tuple<int, string>(97, "<for_statement>"), 25);
+            transitions.Add(new Tuple<int, string>(97, "<while_statement>"), 26);
+            transitions.Add(new Tuple<int, string>(97, "<for>"), 27);
+            transitions.Add(new Tuple<int, string>(97, "<while>"), 28);
+            transitions.Add(new Tuple<int, string>(97, "<read>"), 29);
+            transitions.Add(new Tuple<int, string>(97, "<write>"), 30);
+
+            transitions.Add(new Tuple<int, string>(102, "<multiplicative_operator>"), 115);
+
+            transitions.Add(new Tuple<int, string>(103, "<close_brace>"), 116);
+
+            transitions.Add(new Tuple<int, string>(105, "<open_brace>"), 117);
+
+            transitions.Add(new Tuple<int, string>(106, "<open_brace>"), 118);
+
+            transitions.Add(new Tuple<int, string>(107, "<itr>"), 119);
+            transitions.Add(new Tuple<int, string>(107, "<identifier>"), 120);
+
+            transitions.Add(new Tuple<int, string>(108, "<end_of_statement>"), 121);
+
+            transitions.Add(new Tuple<int, string>(109, "<relational_operator>"), 122);
+
+            transitions.Add(new Tuple<int, string>(110, "<statement>"), 123);
+            transitions.Add(new Tuple<int, string>(110, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(110, "<conditional>"), 13);
+            transitions.Add(new Tuple<int, string>(110, "<atr>"), 14);
+            transitions.Add(new Tuple<int, string>(110, "<rept>"), 15);
+            transitions.Add(new Tuple<int, string>(110, "<read_statement>"), 16);
+            transitions.Add(new Tuple<int, string>(110, "<write_statement>"), 17);
+            transitions.Add(new Tuple<int, string>(110, "<if_statement>"), 18);
+            transitions.Add(new Tuple<int, string>(110, "<switch_statement>"), 19);
+            transitions.Add(new Tuple<int, string>(110, "<if_conditional>"), 20);
+            transitions.Add(new Tuple<int, string>(110, "<if_or_else>"), 21);
+            transitions.Add(new Tuple<int, string>(110, "<if>"), 22);
+            transitions.Add(new Tuple<int, string>(110, "<switch>"), 23);
+            transitions.Add(new Tuple<int, string>(110, "<identifier>"), 24);
+            transitions.Add(new Tuple<int, string>(110, "<for_statement>"), 25);
+            transitions.Add(new Tuple<int, string>(110, "<while_statement>"), 26);
+            transitions.Add(new Tuple<int, string>(110, "<for>"), 27);
+            transitions.Add(new Tuple<int, string>(110, "<while>"), 28);
+            transitions.Add(new Tuple<int, string>(110, "<read>"), 29);
+            transitions.Add(new Tuple<int, string>(110, "<write>"), 30);
+
+            transitions.Add(new Tuple<int, string>(114, "<close_brace>"), 125);
+
+            transitions.Add(new Tuple<int, string>(115, "<multiplicative_expression>"), 126);
+            transitions.Add(new Tuple<int, string>(115, "<open_parenthesis>"), 57);
+            transitions.Add(new Tuple<int, string>(115, "<operand>"), 58);
+            transitions.Add(new Tuple<int, string>(115, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(115, "<number>"), 60);
+
+            transitions.Add(new Tuple<int, string>(117, "<statement>"), 127);
+            transitions.Add(new Tuple<int, string>(117, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(117, "<conditional>"), 13);
+            transitions.Add(new Tuple<int, string>(117, "<atr>"), 14);
+            transitions.Add(new Tuple<int, string>(117, "<rept>"), 15);
+            transitions.Add(new Tuple<int, string>(117, "<read_statement>"), 16);
+            transitions.Add(new Tuple<int, string>(117, "<write_statement>"), 17);
+            transitions.Add(new Tuple<int, string>(117, "<if_statement>"), 18);
+            transitions.Add(new Tuple<int, string>(117, "<switch_statement>"), 19);
+            transitions.Add(new Tuple<int, string>(117, "<if_conditional>"), 20);
+            transitions.Add(new Tuple<int, string>(117, "<if_or_else>"), 21);
+            transitions.Add(new Tuple<int, string>(117, "<if>"), 22);
+            transitions.Add(new Tuple<int, string>(117, "<switch>"), 23);
+            transitions.Add(new Tuple<int, string>(117, "<identifier>"), 24);
+            transitions.Add(new Tuple<int, string>(117, "<for_statement>"), 25);
+            transitions.Add(new Tuple<int, string>(117, "<while_statement>"), 26);
+            transitions.Add(new Tuple<int, string>(117, "<for>"), 27);
+            transitions.Add(new Tuple<int, string>(117, "<while>"), 28);
+            transitions.Add(new Tuple<int, string>(117, "<read>"), 29);
+            transitions.Add(new Tuple<int, string>(117, "<write>"), 30);
+
+            transitions.Add(new Tuple<int, string>(118, "<statement>"), 128);
+            transitions.Add(new Tuple<int, string>(118, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(118, "<conditional>"), 13);
+            transitions.Add(new Tuple<int, string>(118, "<atr>"), 14);
+            transitions.Add(new Tuple<int, string>(118, "<rept>"), 15);
+            transitions.Add(new Tuple<int, string>(118, "<read_statement>"), 16);
+            transitions.Add(new Tuple<int, string>(118, "<write_statement>"), 17);
+            transitions.Add(new Tuple<int, string>(118, "<if_statement>"), 18);
+            transitions.Add(new Tuple<int, string>(118, "<switch_statement>"), 19);
+            transitions.Add(new Tuple<int, string>(118, "<if_conditional>"), 20);
+            transitions.Add(new Tuple<int, string>(118, "<if_or_else>"), 21);
+            transitions.Add(new Tuple<int, string>(118, "<if>"), 22);
+            transitions.Add(new Tuple<int, string>(118, "<switch>"), 23);
+            transitions.Add(new Tuple<int, string>(118, "<identifier>"), 24);
+            transitions.Add(new Tuple<int, string>(118, "<for_statement>"), 25);
+            transitions.Add(new Tuple<int, string>(118, "<while_statement>"), 26);
+            transitions.Add(new Tuple<int, string>(118, "<for>"), 27);
+            transitions.Add(new Tuple<int, string>(118, "<while>"), 28);
+            transitions.Add(new Tuple<int, string>(118, "<read>"), 29);
+            transitions.Add(new Tuple<int, string>(118, "<write>"), 30);
+
+            transitions.Add(new Tuple<int, string>(119, "<close_parenthesis>"), 129);
+
+            transitions.Add(new Tuple<int, string>(120, "<iteration_operator>"), 130);
+
+            transitions.Add(new Tuple<int, string>(122, "<arithmetic_expression>"), 131);
+            transitions.Add(new Tuple<int, string>(122, "<sum_expression>"), 55);
+            transitions.Add(new Tuple<int, string>(122, "<multiplicative_expression>"), 56);
+            transitions.Add(new Tuple<int, string>(122, "<open_parenthesis>"), 57);
+            transitions.Add(new Tuple<int, string>(122, "<operand>"), 58);
+            transitions.Add(new Tuple<int, string>(122, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(122, "<number>"), 60);
+
+            transitions.Add(new Tuple<int, string>(123, "<close_brace>"), 132);
+
+            transitions.Add(new Tuple<int, string>(125, "<else_statement>"), 133);
+            transitions.Add(new Tuple<int, string>(125, "<else>"), 134);
+
+            transitions.Add(new Tuple<int, string>(126, "<multiplicative_operator>"), 135);
+
+            transitions.Add(new Tuple<int, string>(127, "<break>"), 136);
+
+            transitions.Add(new Tuple<int, string>(128, "<break>"), 137);
+
+            transitions.Add(new Tuple<int, string>(129, "<open_brace>"), 138);
+
+            transitions.Add(new Tuple<int, string>(130, "<number>"), 139);
+
+            transitions.Add(new Tuple<int, string>(134, "<open_brace>"), 140);
+            transitions.Add(new Tuple<int, string>(134, "<if_statement>"), 141);
+            transitions.Add(new Tuple<int, string>(134, "<if_conditional>"), 20);
+            transitions.Add(new Tuple<int, string>(134, "<if_or_else>"), 21);
+            transitions.Add(new Tuple<int, string>(134, "<if>"), 22);
+
+            transitions.Add(new Tuple<int, string>(135, "<operand>"), 142);
+            transitions.Add(new Tuple<int, string>(135, "<identifier>"), 59);
+            transitions.Add(new Tuple<int, string>(135, "<number>"), 60);
+
+            transitions.Add(new Tuple<int, string>(136, "<operand>"), 143);
+
+            transitions.Add(new Tuple<int, string>(137, "<end_of_statement>"), 144);
+
+            transitions.Add(new Tuple<int, string>(138, "<statement>"), 145);
+            transitions.Add(new Tuple<int, string>(138, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(138, "<conditional>"), 13);
             transitions.Add(new Tuple<int, string>(138, "<atr>"), 14);
-            transitions.Add(new Tuple<int, string>(138, "<conditional>"), 15);
-            transitions.Add(new Tuple<int, string>(138, "<rept>"), 16);
-            transitions.Add(new Tuple<int, string>(138, "<identifier>"), 17);
+            transitions.Add(new Tuple<int, string>(138, "<rept>"), 15);
+            transitions.Add(new Tuple<int, string>(138, "<read_statement>"), 16);
+            transitions.Add(new Tuple<int, string>(138, "<write_statement>"), 17);
             transitions.Add(new Tuple<int, string>(138, "<if_statement>"), 18);
             transitions.Add(new Tuple<int, string>(138, "<switch_statement>"), 19);
-            transitions.Add(new Tuple<int, string>(138, "<switch>"), 20);
-            transitions.Add(new Tuple<int, string>(138, "<if_conditional>"), 21);
-            transitions.Add(new Tuple<int, string>(138, "<if_or_else>"), 22);
-            transitions.Add(new Tuple<int, string>(138, "<if>"), 23);
-            transitions.Add(new Tuple<int, string>(138, "<for_statement>"), 24);
-            transitions.Add(new Tuple<int, string>(138, "<while_statement>"), 25);
-            transitions.Add(new Tuple<int, string>(138, "<for>"), 26);
-            transitions.Add(new Tuple<int, string>(138, "<while>"), 27);
-            transitions.Add(new Tuple<int, string>(138, "<read_statement>"), 145);
-            transitions.Add(new Tuple<int, string>(138, "<write_statement>"), 146);
-            transitions.Add(new Tuple<int, string>(138, "<read>"), 147);
-            transitions.Add(new Tuple<int, string>(138, "<write>"), 148);
+            transitions.Add(new Tuple<int, string>(138, "<if_conditional>"), 20);
+            transitions.Add(new Tuple<int, string>(138, "<if_or_else>"), 21);
+            transitions.Add(new Tuple<int, string>(138, "<if>"), 22);
+            transitions.Add(new Tuple<int, string>(138, "<switch>"), 23);
+            transitions.Add(new Tuple<int, string>(138, "<identifier>"), 24);
+            transitions.Add(new Tuple<int, string>(138, "<for_statement>"), 25);
+            transitions.Add(new Tuple<int, string>(138, "<while_statement>"), 26);
+            transitions.Add(new Tuple<int, string>(138, "<for>"), 27);
+            transitions.Add(new Tuple<int, string>(138, "<while>"), 28);
+            transitions.Add(new Tuple<int, string>(138, "<read>"), 29);
+            transitions.Add(new Tuple<int, string>(138, "<write>"), 30);
 
-            transitions.Add(new Tuple<int, string>(140, "<close_brace>"), 143);
+            transitions.Add(new Tuple<int, string>(140, "<statement>"), 146);
+            transitions.Add(new Tuple<int, string>(140, "<statement_type>"), 36);
+            transitions.Add(new Tuple<int, string>(140, "<conditional>"), 13);
+            transitions.Add(new Tuple<int, string>(140, "<atr>"), 14);
+            transitions.Add(new Tuple<int, string>(140, "<rept>"), 15);
+            transitions.Add(new Tuple<int, string>(140, "<read_statement>"), 16);
+            transitions.Add(new Tuple<int, string>(140, "<write_statement>"), 17);
+            transitions.Add(new Tuple<int, string>(140, "<if_statement>"), 18);
+            transitions.Add(new Tuple<int, string>(140, "<switch_statement>"), 19);
+            transitions.Add(new Tuple<int, string>(140, "<if_conditional>"), 20);
+            transitions.Add(new Tuple<int, string>(140, "<if_or_else>"), 21);
+            transitions.Add(new Tuple<int, string>(140, "<if>"), 22);
+            transitions.Add(new Tuple<int, string>(140, "<switch>"), 23);
+            transitions.Add(new Tuple<int, string>(140, "<identifier>"), 24);
+            transitions.Add(new Tuple<int, string>(140, "<for_statement>"), 25);
+            transitions.Add(new Tuple<int, string>(140, "<while_statement>"), 26);
+            transitions.Add(new Tuple<int, string>(140, "<for>"), 27);
+            transitions.Add(new Tuple<int, string>(140, "<while>"), 28);
+            transitions.Add(new Tuple<int, string>(140, "<read>"), 29);
+            transitions.Add(new Tuple<int, string>(140, "<write>"), 30);
 
-            transitions.Add(new Tuple<int, string>(141, "<close_brace>"), 144);
+            transitions.Add(new Tuple<int, string>(144, "<close_brace>"), 147);
 
-            transitions.Add(new Tuple<int, string>(147, "<open_parenthesis>"), 149);
+            transitions.Add(new Tuple<int, string>(145, "<close_brace>"), 148);
 
-            transitions.Add(new Tuple<int, string>(148, "<open_parenthesis>"), 150);
-
-            transitions.Add(new Tuple<int, string>(149, "<identifier>"), 151);
-
-            transitions.Add(new Tuple<int, string>(150, "<string>"), 152);
-            transitions.Add(new Tuple<int, string>(150, "<identifier>"), 153);
-
-            transitions.Add(new Tuple<int, string>(151, "<close_parenthesis>"), 154);
-
-            transitions.Add(new Tuple<int, string>(152, "<close_parenthesis>"), 155);
-
-            transitions.Add(new Tuple<int, string>(153, "<close_parenthesis>"), 156);
-
-            transitions.Add(new Tuple<int, string>(154, "<end_of_statement>"), 157);
-
-            transitions.Add(new Tuple<int, string>(155, "<end_of_statement>"), 158);
-
-            transitions.Add(new Tuple<int, string>(156, "<end_of_statement>"), 159);
-
-            transitions.Add(new Tuple<int, string>(160, "<identifier>"), 161);
-
-            transitions.Add(new Tuple<int, string>(161, "<attribution_operator>"), 162);
-
-            transitions.Add(new Tuple<int, string>(162, "<something>"), 163);
-            transitions.Add(new Tuple<int, string>(162, "<number>"), 60);
-            transitions.Add(new Tuple<int, string>(162, "<string>"), 61);
-            transitions.Add(new Tuple<int, string>(162, "<identifier>"), 62);
-
-            transitions.Add(new Tuple<int, string>(163, "<end_of_statement>"), 164);
-
-            transitions.Add(new Tuple<int, string>(165, "<end_of_statement>"), 166);
-
+            transitions.Add(new Tuple<int, string>(146, "<close_brace>"), 149);
         }
 
         private void AddFollow()
